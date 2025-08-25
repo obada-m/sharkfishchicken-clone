@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Menu } from "lucide-react";
+import { Menu, ChevronDown } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -32,19 +32,52 @@ export default function NavigationHeader() {
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-6 md:flex">
           <Link
-            href="/"
-            className="text-base font-semibold text-gray-600 transition-colors hover:text-primary"
+            href="/menu"
+            className="text-base font-medium text-gray-700 transition-colors hover:text-gray-900"
           >
-            Home
+            Menu
           </Link>
           <Link
-            href="#"
-            className="text-base font-semibold text-gray-600 transition-colors hover:text-primary"
+            href="/events"
+            className="text-base font-medium text-gray-700 transition-colors hover:text-gray-900"
+          >
+            Events
+          </Link>
+          <Link
+            href="/our-story"
+            className="text-base font-medium text-gray-700 transition-colors hover:text-gray-900"
+          >
+            Our Story
+          </Link>
+          <Link
+            href="/gift-cards"
+            className="text-base font-medium text-gray-700 transition-colors hover:text-gray-900"
+          >
+            Gift Cards
+          </Link>
+          <Link
+            href="/careers"
+            className="text-base font-medium text-gray-700 transition-colors hover:text-gray-900"
+          >
+            We're Hiring
+          </Link>
+          <div className="flex items-center gap-1">
+            <Link
+              href="/more"
+              className="text-base font-medium text-gray-700 transition-colors hover:text-gray-900"
+            >
+              More
+            </Link>
+            <ChevronDown className="h-4 w-4 text-gray-700" />
+          </div>
+          <Link
+            href="/sign-in"
+            className="text-base font-medium text-gray-700 transition-colors hover:text-gray-900"
           >
             Sign in
           </Link>
-          <Button asChild className="font-semibold">
-            <Link href="/menu">Order online</Link>
+          <Button asChild className="bg-teal-600 hover:bg-teal-700 font-medium text-white">
+            <Link href="/order">Order online</Link>
           </Button>
         </nav>
 
@@ -60,19 +93,49 @@ export default function NavigationHeader() {
             <SheetContent side="right">
               <nav className="flex flex-col gap-8 pt-6">
                 <Link
-                  href="/"
+                  href="/menu"
                   className="text-lg font-medium text-foreground transition-colors hover:text-primary"
                 >
-                  Home
+                  Menu
                 </Link>
                 <Link
-                  href="#"
+                  href="/events"
+                  className="text-lg font-medium text-foreground transition-colors hover:text-primary"
+                >
+                  Events
+                </Link>
+                <Link
+                  href="/our-story"
+                  className="text-lg font-medium text-foreground transition-colors hover:text-primary"
+                >
+                  Our Story
+                </Link>
+                <Link
+                  href="/gift-cards"
+                  className="text-lg font-medium text-foreground transition-colors hover:text-primary"
+                >
+                  Gift Cards
+                </Link>
+                <Link
+                  href="/careers"
+                  className="text-lg font-medium text-foreground transition-colors hover:text-primary"
+                >
+                  We're Hiring
+                </Link>
+                <Link
+                  href="/more"
+                  className="text-lg font-medium text-foreground transition-colors hover:text-primary"
+                >
+                  More
+                </Link>
+                <Link
+                  href="/sign-in"
                   className="text-lg font-medium text-foreground transition-colors hover:text-primary"
                 >
                   Sign in
                 </Link>
-                <Button asChild size="lg" className="w-full">
-                  <Link href="/menu">Order online</Link>
+                <Button asChild size="lg" className="w-full bg-teal-600 hover:bg-teal-700">
+                  <Link href="/order">Order online</Link>
                 </Button>
               </nav>
             </SheetContent>
