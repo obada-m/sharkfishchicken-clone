@@ -32,6 +32,12 @@ export default function NavigationHeader() {
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-6 md:flex">
           <Link
+            href="/"
+            className="text-base font-semibold text-gray-600 transition-colors hover:text-primary"
+          >
+            Home
+          </Link>
+          <Link
             href="#"
             className="text-base font-semibold text-gray-600 transition-colors hover:text-primary"
           >
@@ -53,6 +59,12 @@ export default function NavigationHeader() {
             </SheetTrigger>
             <SheetContent side="right">
               <nav className="flex flex-col gap-8 pt-6">
+                <Link
+                  href="/"
+                  className="text-lg font-medium text-foreground transition-colors hover:text-primary"
+                >
+                  Home
+                </Link>
                 <Link
                   href="#"
                   className="text-lg font-medium text-foreground transition-colors hover:text-primary"
