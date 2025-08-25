@@ -11,10 +11,12 @@ import FeaturesSection from "@/components/sections/features-section";
 import RewardsProgramSection from "@/components/sections/rewards-program-section";
 import FaqSection from "@/components/sections/faq-section";
 import LocationsSection from "@/components/sections/locations-section";
+import { PromoBanner } from "@/components/sections/banner-section";
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
+      <PromoBanner />
       <NavigationHeader />
       
       <main>
