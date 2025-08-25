@@ -1,100 +1,183 @@
-import Image from 'next/image';
+"use client";
+
+import React, { useState } from 'react';
 import Link from 'next/link';
-
-type MenuItem = {
-  name: string;
-  imageSrc: string;
-  href: string;
-};
-
-const menuItems: MenuItem[] = [
-  {
-    name: "10 Wings & Fries",
-    imageSrc: "https://static-content.owner.com/funnel/images/6ed0cb7d-cc10-46d1-9d3b-97a80403d97e?v=6442301501&w=3840&q=80&auto=format",
-    href: "/menu?item=10-wings-fries-BrZV",
-  },
-  {
-    name: "15 Pcs Boneless Wings with Fries",
-    imageSrc: "https://static-content.owner.com/funnel/images/0963047f-1822-4010-b563-93e20ba2ed12?v=5877672445&w=3840&q=80&auto=format",
-    href: "/menu?item=15-pcs-boneless-wings-with-fries-kzZm",
-  },
-  {
-    name: "6 Buffalo/Honey BBQ 1/2 Wings",
-    imageSrc: "https://static-content.owner.com/funnel/images/357d9564-8643-4055-809f-6e0aeefb55c8.jpg?v=6518221906&w=3840&q=80&auto=format",
-    href: "/menu?item=6-buffalohoney-bbq-12-wings-ygJE",
-  },
-  {
-    name: "Large Catfish Tails (5 Pcs)",
-    imageSrc: "https://static-content.owner.com/funnel/images/aa452834-2855-439e-8199-47e600053ca7.jpg?v=4576282683&w=3840&q=80&auto=format",
-    href: "/menu?item=large-catfish-tails-5-pcs-sMaj",
-  },
-  {
-    name: "Large Catfish Fillet (3 Pcs)",
-    imageSrc: "https://static-content.owner.com/funnel/images/07dff817-e2ba-4eb6-8756-a1b8f0ab3fe2?v=8390352292&w=3840&q=80&auto=format",
-    href: "/menu?item=large-catfish-fillet-3-pcs-gxT7",
-  },
-  {
-    name: "Medium Catfish Nuggets",
-    imageSrc: "https://static-content.owner.com/funnel/images/99a96597-81b2-45c2-b050-35b24bdafbbc?v=8585416234&w=3840&q=80&auto=format",
-    href: "/menu?item=medium-catfish-nuggets-shIv",
-  },
-  {
-    name: "Small Catfish Nuggets",
-    imageSrc: "https://static-content.owner.com/funnel/images/77d58e54-952b-4506-80cb-0e42da885820?v=5383875533&w=3840&q=80&auto=format",
-    href: "/menu?item=small-catfish-nuggets-WNF4",
-  },
-  {
-    name: "Small Tilapia Fillet (2 Pcs)",
-    imageSrc: "https://static-content.owner.com/funnel/images/1d70af5c-efb0-4d04-acf5-b4a2c6db0dfd?v=1517938561&w=3840&q=80&auto=format",
-    href: "/menu?item=small-tilapia-fillet-2-pcs-Fzms",
-  },
-  {
-    name: "Small Chicken Tenders (4 Pcs)",
-    imageSrc: "https://static-content.owner.com/funnel/images/1bb13ec1-7d2e-4843-b1aa-61678ddc63d5?v=7315262987&w=3840&q=80&auto=format",
-    href: "/menu?item=small-chicken-tenders-4-pcs-CuNl",
-  },
-  {
-    name: "Large Chicken Gizzards",
-    imageSrc: "https://static-content.owner.com/funnel/images/7126566d-cabd-4fac-b56c-325b4e47f292?v=4056296481&w=3840&q=80&auto=format",
-    href: "/menu?item=large-chicken-gizzards-GL0m",
-  },
-];
-
+import { Plus, Star } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
+import { getPopularItems, MenuItem, SEASONINGS } from '@/lib/menu-data';
+import { useCart } from '@/lib/cart-context';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import { Textarea } from '@/components/ui/textarea';
 
 export default function FeaturedMenuSection() {
+  const { dispatch } = useCart();
+  const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
+  const [selectedSeasoning, setSelectedSeasoning] = useState<string>('Plain');
+  const [specialInstructions, setSpecialInstructions] = useState<string>('');
+  
+  const popularItems = getPopularItems();
+
+  const handleAddToCart = (item: MenuItem) => {
+    dispatch({
+      type: 'ADD_ITEM',
+      payload: {
+        item,
+        seasoning: selectedSeasoning,
+        specialInstructions: specialInstructions.trim() || undefined
+      }
+    });
+    dispatch({ type: 'OPEN_CART' });
+    setSelectedItem(null);
+    setSpecialInstructions('');
+  };
+
   return (
-    <section className="bg-background py-[60px]">
-      <div className="container">
-        <div className="flex justify-between items-center mb-8">
-          <Link href="/menu">
-            <h2 className="text-2xl font-semibold text-foreground">Featured</h2>
-          </Link>
-          <Link href="/menu" className="text-base font-semibold text-primary hover:underline">
-            View menu
-          </Link>
+    <section className="bg-gray-50 py-16">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Our House Favorites</h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Discover our most popular dishes that keep customers coming back for more
+          </p>
         </div>
 
-        <div className="overflow-x-auto pb-4">
-          <div className="flex flex-nowrap gap-6">
-            {menuItems.map((item, index) => (
-              <Link href={item.href} key={index} className="block flex-shrink-0 w-[260px] group">
-                <div className="overflow-hidden rounded-lg">
-                  <Image
-                    src={item.imageSrc}
-                    alt={item.name}
-                    width={260}
-                    height={260}
-                    className="aspect-square object-cover w-full transition-transform duration-200 ease-in-out group-hover:scale-105"
-                  />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {popularItems.map((item) => (
+            <div
+              key={item.id}
+              className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden"
+            >
+              <div className="aspect-square bg-gradient-to-br from-teal-100 to-blue-100 flex items-center justify-center text-6xl">
+                {item.category === 'wings' ? '🍗' : 
+                 item.category === 'fish-dinners' ? '🐟' : 
+                 item.category === 'house-favorites' ? '⭐' : '🍽️'}
+              </div>
+              
+              <div className="p-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <h3 className="text-xl font-semibold text-gray-900">{item.name}</h3>
+                  <Badge className="bg-orange-100 text-orange-800">
+                    <Star className="h-3 w-3 mr-1" />
+                    Popular
+                  </Badge>
                 </div>
-                <p className="mt-4 text-center text-base font-semibold text-foreground">
-                  {item.name}
-                </p>
-              </Link>
-            ))}
-          </div>
+                
+                <p className="text-gray-600 mb-4">{item.description}</p>
+                
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-2xl font-bold text-teal-600">
+                    ${item.price.toFixed(2)}
+                  </span>
+                  {item.portions && (
+                    <span className="text-sm text-gray-500">{item.portions}</span>
+                  )}
+                </div>
+                
+                <div className="flex gap-2">
+                  <Button
+                    onClick={() => setSelectedItem(item)}
+                    className="flex-1 bg-teal-600 hover:bg-teal-700"
+                  >
+                    <Plus className="h-4 w-4 mr-2" />
+                    Add to Cart
+                  </Button>
+                  <Button variant="outline" asChild>
+                    <Link href="/menu">View Menu</Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <Button asChild size="lg" className="bg-teal-600 hover:bg-teal-700">
+            <Link href="/menu">Browse Full Menu</Link>
+          </Button>
         </div>
       </div>
+
+      {/* Add to Cart Dialog */}
+      {selectedItem && (
+        <Dialog open={!!selectedItem} onOpenChange={() => setSelectedItem(null)}>
+          <DialogContent className="sm:max-w-md">
+            <DialogHeader>
+              <DialogTitle>Add {selectedItem.name} to Cart</DialogTitle>
+            </DialogHeader>
+            
+            <div className="space-y-4">
+              <div>
+                <p className="text-gray-600 text-sm">{selectedItem.description}</p>
+                <p className="font-bold text-teal-600 text-lg mt-2">
+                  ${selectedItem.price.toFixed(2)}
+                </p>
+                {selectedItem.portions && (
+                  <p className="text-sm text-gray-500">{selectedItem.portions}</p>
+                )}
+              </div>
+
+              {selectedItem.seasonings && (
+                <div>
+                  <label className="block text-sm font-medium mb-2">Choose Seasoning:</label>
+                  <Select value={selectedSeasoning} onValueChange={setSelectedSeasoning}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select seasoning" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {SEASONINGS.map((seasoning) => (
+                        <SelectItem key={seasoning} value={seasoning}>
+                          {seasoning}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              )}
+
+              <div>
+                <label className="block text-sm font-medium mb-2">
+                  Special Instructions (Optional):
+                </label>
+                <Textarea
+                  placeholder="Any special requests..."
+                  value={specialInstructions}
+                  onChange={(e) => setSpecialInstructions(e.target.value)}
+                  rows={3}
+                />
+              </div>
+
+              <div className="flex gap-3 pt-4">
+                <Button 
+                  variant="outline" 
+                  onClick={() => setSelectedItem(null)} 
+                  className="flex-1"
+                >
+                  Cancel
+                </Button>
+                <Button 
+                  onClick={() => handleAddToCart(selectedItem)} 
+                  className="flex-1 bg-teal-600 hover:bg-teal-700"
+                >
+                  Add to Cart
+                </Button>
+              </div>
+            </div>
+          </DialogContent>
+        </Dialog>
+      )}
     </section>
   );
 }
