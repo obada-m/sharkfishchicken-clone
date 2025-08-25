@@ -17,20 +17,20 @@ export default function NavigationHeader() {
   const { state, dispatch } = useCart();
 
   return (
-    <header className="sticky top-0 z-50 flex h-20 w-full items-center border-b-[1px] border-b-gray-200 bg-white">
-      <div className="container flex w-full items-center justify-between">
+    <header className="sticky top-0 z-50 flex h-16 sm:h-20 w-full items-center border-b-[1px] border-b-gray-200 bg-white">
+      <div className="container flex w-full items-center justify-between px-4 sm:px-6">
         <Link
           href="/"
           className="flex items-center"
           title="Sharks Fish & Chicken - Go to home page"
         >
-          <div className="flex items-center gap-3">
-            <div className="h-12 w-12 bg-gradient-to-br from-blue-500 to-teal-600 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-lg">🦈</span>
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="h-10 w-10 sm:h-12 sm:w-12 bg-gradient-to-br from-blue-500 to-teal-600 rounded-full flex items-center justify-center">
+              <span className="text-white font-bold text-base sm:text-lg">🦈</span>
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-xl text-gray-900">Sharks</span>
-              <span className="text-sm text-gray-600 -mt-1">Fish & Chicken</span>
+              <span className="font-bold text-lg sm:text-xl text-gray-900">Sharks</span>
+              <span className="text-xs sm:text-sm text-gray-600 -mt-1">Fish & Chicken</span>
             </div>
           </div>
         </Link>
@@ -94,12 +94,13 @@ export default function NavigationHeader() {
           <Button
             variant="outline"
             size="sm"
-            className="relative"
+            className="relative h-10 px-3 rounded-lg border-gray-200"
             onClick={() => dispatch({ type: 'TOGGLE_CART' })}
           >
-            <ShoppingCart className="h-4 w-4" />
+            <ShoppingCart className="h-4 w-4 mr-1" />
+            <span className="text-sm font-medium">${state.total.toFixed(2)}</span>
             {state.itemCount > 0 && (
-              <Badge className="absolute -top-1 -right-1 h-4 w-4 flex items-center justify-center p-0 bg-red-500 text-xs">
+              <Badge className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 bg-red-500 text-xs font-bold">
                 {state.itemCount}
               </Badge>
             )}
@@ -107,63 +108,75 @@ export default function NavigationHeader() {
           
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="outline" size="icon">
-                <Menu className="h-6 w-6" />
+              <Button 
+                variant="outline" 
+                size="sm"
+                className="h-10 w-10 p-0 rounded-lg border-gray-200"
+              >
+                <Menu className="h-5 w-5" />
                 <span className="sr-only">Open menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right">
-              <nav className="flex flex-col gap-6 pt-6">
-                <Link
-                  href="/"
-                  className="text-lg font-medium text-foreground transition-colors hover:text-primary"
-                >
-                  Home
-                </Link>
-                <Link
-                  href="/menu"
-                  className="text-lg font-medium text-foreground transition-colors hover:text-primary"
-                >
-                  Menu
-                </Link>
-                <Link
-                  href="/locations"
-                  className="text-lg font-medium text-foreground transition-colors hover:text-primary"
-                >
-                  Locations
-                </Link>
-                <Link
-                  href="/story"
-                  className="text-lg font-medium text-foreground transition-colors hover:text-primary"
-                >
-                  Our Story
-                </Link>
+            <SheetContent side="right" className="w-full sm:w-80 p-0">
+              <div className="flex flex-col h-full">
+                <div className="p-6 border-b">
+                  <h2 className="text-xl font-bold text-gray-900">Menu</h2>
+                </div>
                 
-                <div className="border-t pt-4 mt-4">
-                  <div className="mb-4 p-3 bg-gray-50 rounded-lg">
-                    <div className="flex items-center justify-between">
-                      <span className="font-medium">Cart</span>
-                      <span className="font-bold">${state.total.toFixed(2)}</span>
+                <nav className="flex-1 p-6 space-y-1">
+                  <Link
+                    href="/"
+                    className="block px-4 py-3 text-lg font-medium text-gray-900 rounded-lg hover:bg-gray-50 transition-colors"
+                  >
+                    🏠 Home
+                  </Link>
+                  <Link
+                    href="/menu"
+                    className="block px-4 py-3 text-lg font-medium text-gray-900 rounded-lg hover:bg-gray-50 transition-colors"
+                  >
+                    📋 Menu
+                  </Link>
+                  <Link
+                    href="/locations"
+                    className="block px-4 py-3 text-lg font-medium text-gray-900 rounded-lg hover:bg-gray-50 transition-colors"
+                  >
+                    📍 Locations
+                  </Link>
+                  <Link
+                    href="/story"
+                    className="block px-4 py-3 text-lg font-medium text-gray-900 rounded-lg hover:bg-gray-50 transition-colors"
+                  >
+                    📖 Our Story
+                  </Link>
+                </nav>
+
+                <div className="border-t p-6 space-y-4">
+                  <div className="p-4 bg-gray-50 rounded-lg">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-semibold text-gray-900">Your Cart</span>
+                      <span className="font-bold text-teal-600 text-lg">${state.total.toFixed(2)}</span>
                     </div>
-                    <div className="text-sm text-gray-600 mt-1">
+                    <div className="text-sm text-gray-600">
                       {state.itemCount} {state.itemCount === 1 ? 'item' : 'items'}
                     </div>
                   </div>
                   
-                  <Button asChild size="lg" className="w-full bg-teal-600 hover:bg-teal-700 mb-3">
-                    <Link href="/order">Order Online</Link>
-                  </Button>
-                  
-                  <Button 
-                    variant="outline" 
-                    size="lg" 
-                    className="w-full"
-                    onClick={() => dispatch({ type: 'TOGGLE_CART' })}
-                  >
-                    View Cart
-                  </Button>
+                  <div className="space-y-3">
+                    <Button asChild size="lg" className="w-full bg-teal-600 hover:bg-teal-700 h-12 text-base font-semibold">
+                      <Link href="/order">🛒 Order Online</Link>
+                    </Button>
+                    
+                    <Button 
+                      variant="outline" 
+                      size="lg" 
+                      className="w-full h-12 text-base font-medium"
+                      onClick={() => dispatch({ type: 'TOGGLE_CART' })}
+                    >
+                      👁️ View Cart
+                    </Button>
+                  </div>
                 </div>
-              </nav>
+              </div>
             </SheetContent>
           </Sheet>
         </div>
