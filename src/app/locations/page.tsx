@@ -172,22 +172,7 @@ export default function LocationsPage() {
             We Also Serve These Areas
           </h2>
           <div className="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto">
-            {[
-              'Crown Point',
-              'Gary',
-              'Hobart',
-              'Schererville',
-              'Highland',
-              'Hammond',
-              'Munster',
-              'Dyer',
-              'St. John',
-              'Lansing',
-              'South Chicago Heights',
-              'Chicago Heights',
-              'Lynwood',
-              'Glenwood',
-            ].map((area) => (
+            {['Lansing', 'Merrilville', 'Sauk Village'].map((area) => (
               <span
                 key={area}
                 className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
