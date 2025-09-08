@@ -5,6 +5,7 @@ import MenuFlavorSection from "@/components/sections/menu-flavor-section";
 import OrderOnlineSection from "@/components/sections/order-online-section";
 import WelcomeRestaurantSection from "@/components/sections/welcome-restaurant-section";
 import MenuGallerySection from "@/components/sections/menu-gallery-section";
+import OurStorySection from "@/components/sections/our-story-section";
 import FamilyDiningSection from "@/components/sections/family-dining-section";
 import VisitTodaySection from "@/components/sections/visit-today-section";
 import CustomerReviewsSection from "@/components/sections/customer-reviews-section";
@@ -26,6 +27,7 @@ export default function HomePage() {
         <MenuFlavorSection />
         <OrderOnlineSection />
         <MenuGallerySection />
+        <OurStorySection />
         <FamilyDiningSection />
         <VisitTodaySection />
         <CustomerReviewsSection />
