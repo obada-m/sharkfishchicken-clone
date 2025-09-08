@@ -156,9 +156,9 @@ export default function LocationsPage() {
           <h2 className="text-xl font-semibold text-gray-900 mb-4">We Also Serve These Areas</h2>
           <div className="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto">
             {[
-              'Homewood', 'East Hazel Crest', 'Markham', 'Blue Island', 'Dixmoor',
-              'Phoenix', 'Riverdale', 'Calumet City', 'Dolton', 'South Holland',
-              'Thornton', 'Country Club Hills', 'Flossmoor', 'Glenwood'
+              'Crown Point', 'Gary', 'Hobart', 'Schererville', 'Highland',
+              'Hammond', 'Munster', 'Dyer', 'St. John', 'Lansing',
+              'South Chicago Heights', 'Chicago Heights', 'Lynwood', 'Glenwood'
             ].map(area => (
               <span 
                 key={area}

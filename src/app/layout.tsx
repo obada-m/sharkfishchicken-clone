@@ -6,8 +6,8 @@ import { CartDrawer } from "@/components/ui/cart-drawer";
 
 export const metadata: Metadata = {
   title: "Sharks Fish & Chicken - Best Fried Chicken Restaurant in IL",
-  description: "Experience a crispy, flavorful sensation in every bite. Sharks Fish & Chicken offers authentic fried chicken, fish, wings, and seafood across 4 locations in Illinois including Posen, Hillside, Hazel Crest, and Harvey.",
-  keywords: "fried chicken, fish, wings, seafood, restaurant, Illinois, Posen, Hillside, Hazel Crest, Harvey, delivery, pickup, catering",
+  description: "Experience a crispy, flavorful sensation in every bite. Sharks Fish & Chicken offers authentic fried chicken, fish, wings, and seafood across 3 locations in Illinois and Indiana including Merrilville, Lancing, and Sauk Village.",
+  keywords: "fried chicken, fish, wings, seafood, restaurant, Illinois, Indiana, Merrilville, Lancing, Sauk Village, delivery, pickup, catering",
   openGraph: {
     title: "Sharks Fish & Chicken - Best Fried Chicken Restaurant in IL",
     description: "Experience a crispy, flavorful sensation in every bite. Order online for pickup or delivery.",

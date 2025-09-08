@@ -188,6 +188,101 @@
     padding-left: 24px;
     padding-right: 24px;
   }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Enable smooth drag scrolling */
+  .scrollbar-hide {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Scroll snap alignment */
+  .scroll-snap-align-start {
+    scroll-snap-align: start;
+  }
+
+  /* Prevent text selection while dragging */
+  .cursor-grab:active {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  /* Make horizontal scroll visible on menu cards */
+  .menu-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #d1d5db transparent;
+  }
+
+  .menu-scroll::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .menu-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .menu-scroll::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 3px;
+  }
+
+  .menu-scroll::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+  }
+
+  /* Custom scrollbar styles */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #d1d5db #f3f4f6;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: #f3f4f6;
+    border-radius: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+  }
+
+  /* Smooth scrolling for horizontal menus */
+  .snap-x {
+    scroll-behavior: smooth;
+  }
+
+  /* Add padding to first and last items for better visual spacing */
+  .scroll-padding-start::before {
+    content: '';
+    flex-shrink: 0;
+    width: 1rem;
+  }
+  
+  .scroll-padding-end::after {
+    content: '';
+    flex-shrink: 0;
+    width: 1rem;
+  }
 }
 
 /* Hide Next.js error overlay portal */

@@ -118,26 +118,22 @@ export default function StoryPage() {
         <div className="bg-gray-50 rounded-lg p-8 mb-16">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-6">Serving Illinois Communities</h2>
           <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
-            Today, we're proud to operate four locations across Illinois, each committed to the same 
+            Today, we're proud to operate three locations across Illinois and Indiana, each committed to the same 
             high standards and authentic flavors that made us a local favorite.
           </p>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+          <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-6 text-center">
             <div className="bg-white rounded-lg p-4">
-              <h3 className="font-semibold text-lg text-gray-900">Posen</h3>
-              <p className="text-sm text-gray-600">14727 Kedzie Ave</p>
+              <h3 className="font-semibold text-lg text-gray-900">Merrilville</h3>
+              <p className="text-sm text-gray-600">Merrilville, IN</p>
             </div>
             <div className="bg-white rounded-lg p-4">
-              <h3 className="font-semibold text-lg text-gray-900">Hazel Crest</h3>
-              <p className="text-sm text-gray-600">17455 Kedzie Ave</p>
+              <h3 className="font-semibold text-lg text-gray-900">Lancing</h3>
+              <p className="text-sm text-gray-600">Torrence Avenue, Lancing, IL</p>
             </div>
             <div className="bg-white rounded-lg p-4">
-              <h3 className="font-semibold text-lg text-gray-900">Harvey</h3>
-              <p className="text-sm text-gray-600">159 W 159th St</p>
-            </div>
-            <div className="bg-white rounded-lg p-4">
-              <h3 className="font-semibold text-lg text-gray-900">Hillside</h3>
-              <p className="text-sm text-gray-600">4741 Butterfield Rd</p>
+              <h3 className="font-semibold text-lg text-gray-900">Sauk Village</h3>
+              <p className="text-sm text-gray-600">Sauk Trail, Sauk Village, IL</p>
             </div>
           </div>
         </div>

@@ -59,13 +59,12 @@ const faqItems = [
       <>
         We serve the following areas:{" "}
         <a href="https://sharkfishchicken.com/places/markham" className="text-primary hover:underline">Markham</a>,{" "}
-        <a href="https://sharkfishchicken.com/sharksfishchicken-hazel" className="text-primary hover:underline">Hazel Crest</a>,{" "}
-        <a href="https://sharkfishchicken.com/sharksfishchicken-harvey" className="text-primary hover:underline">Harvey</a>,{" "}
-        <a href="https://sharkfishchicken.com/sharksfishchicken-posen" className="text-primary hover:underline">Posen</a>,{" "}
+        <a href="https://sharkfishchicken.com/sharksfishchicken-merrilville" className="text-primary hover:underline">Merrilville</a>,{" "}
+        <a href="https://sharkfishchicken.com/sharksfishchicken-lancing" className="text-primary hover:underline">Lancing</a>,{" "}
+        <a href="https://sharkfishchicken.com/sharksfishchicken-sauk-village" className="text-primary hover:underline">Sauk Village</a>,{" "}
         <a href="https://sharkfishchicken.com/places/riverdale" className="text-primary hover:underline">Riverdale</a>,{" "}
         <a href="https://sharkfishchicken.com/places/midlothian" className="text-primary hover:underline">Midlothian</a>,{" "}
         <a href="https://sharkfishchicken.com/places/dixmoor" className="text-primary hover:underline">Dixmoor</a>,{" "}
-        <a href="https://sharkfishchicken.com/sharksfishandchicken-hillside" className="text-primary hover:underline">Hillside</a>,{" "}
         <a href="https://sharkfishchicken.com/places/east-hazel-crest" className="text-primary hover:underline">East Hazel Crest</a>,{" "}
         <a href="https://sharkfishchicken.com/places/homewood" className="text-primary hover:underline">Homewood</a>,{" "}
         <a href="https://sharkfishchicken.com/places/berkeley" className="text-primary hover:underline">Berkeley</a>,{" "}

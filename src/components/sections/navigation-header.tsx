@@ -25,8 +25,14 @@ export default function NavigationHeader() {
           title="Sharks Fish & Chicken - Go to home page"
         >
           <div className="flex items-center gap-2 sm:gap-3">
-            <div className="h-10 w-10 sm:h-12 sm:w-12 bg-gradient-to-br from-blue-500 to-teal-600 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-base sm:text-lg">🦈</span>
+            <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-full overflow-hidden">
+              <Image
+                src="/image_001.png"
+                alt="Sharks Fish & Chicken Logo"
+                width={48}
+                height={48}
+                className="object-cover w-full h-full"
+              />
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-lg sm:text-xl text-gray-900">Sharks</span>

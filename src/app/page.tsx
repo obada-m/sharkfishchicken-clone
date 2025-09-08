@@ -1,9 +1,9 @@
-import { PromoBanner } from "@/components/sections/banner-section";
 import NavigationHeader from "@/components/sections/navigation-header";
 import FeaturedMenuSection from "@/components/sections/featured-menu-section";
 import WelcomeHeroSection from "@/components/sections/welcome-hero-section";
 import MenuFlavorSection from "@/components/sections/menu-flavor-section";
 import OrderOnlineSection from "@/components/sections/order-online-section";
+import WelcomeRestaurantSection from "@/components/sections/welcome-restaurant-section";
 import MenuGallerySection from "@/components/sections/menu-gallery-section";
 import FamilyDiningSection from "@/components/sections/family-dining-section";
 import VisitTodaySection from "@/components/sections/visit-today-section";
@@ -17,12 +17,12 @@ import Footer from "@/components/sections/footer";
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
-      <PromoBanner />
       <NavigationHeader />
       
       <main>
         <WelcomeHeroSection />
         <FeaturedMenuSection />
+        <WelcomeRestaurantSection />
         <MenuFlavorSection />
         <OrderOnlineSection />
         <MenuGallerySection />

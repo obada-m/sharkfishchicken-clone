@@ -9,27 +9,23 @@ Sharks Fish & Chicken operates a **multi-platform restaurant website system** se
 ### Primary Platform Structure
 
 **Main Corporate Website**: `sharkfishchicken.com`
+
 - **Homepage**: Brand overview with food gallery and ordering CTAs
 - **Menu Section**: Complete categorized menu with pricing (`/menu`)
-- **Story Section**: Brand history and values (`/story`)  
+- **Story Section**: Brand history and values (`/story`)
 - **Locations Directory**: All restaurant locations (`/page/locations`)
 
 ### Location-Specific Page Architecture
 
-**Individual Location Pages**:
-- Pattern: `/sharksfishchicken-[location-name]`
-- **Posen**: `/sharksfishchicken-posen` (14727 Kedzie Ave)
-- **Hazelcrest**: `/sharksfishchicken-hazel` (17455 Kedzie Ave)  
-- **Harvey**: `/sharksfishchicken-harvey` (159 W 159th St)
-- **Hillside**: `/sharksfishandchicken-hillside` (4741 Butterfield Rd)
-
 **Service Area Pages**:
+
 - Pattern: `/places/[area-name]`
 - Examples: `/places/homewood`, `/places/east-hazel-crest`, `/places/markham`
 
 ### Ordering Platform Architecture
 
 **Primary Ordering System**: `ordersharksfishandchicken.com`
+
 - **Location Subdomains**: `[location].ordersharksfishandchicken.com`
 - **Catering Pages**: `/Catering` endpoint for bulk orders
 - **Alternative Systems**: Talech POS integration for specific locations
@@ -56,6 +52,7 @@ Sharks Fish & Chicken operates a **multi-platform restaurant website system** se
 ### Menu Item Structure
 
 **Data Fields Required**:
+
 - Item name and description
 - Price range ($7.99 - $79.99)
 - Portion information (piece counts, serving sizes)
@@ -68,6 +65,7 @@ Sharks Fish & Chicken operates a **multi-platform restaurant website system** se
 ### Core Ordering System Features
 
 **Shopping Cart Functionality**:
+
 - Dynamic item count display
 - Real-time price calculation ($0.00 empty state)
 - Cart collapse/expand toggle
@@ -76,6 +74,7 @@ Sharks Fish & Chicken operates a **multi-platform restaurant website system** se
 - Cart persistence across navigation
 
 **Menu Navigation System**:
+
 - Category-based expandable sections
 - Individual item selection with quantity controls
 - Customization dropdowns for seasonings and options
@@ -85,8 +84,9 @@ Sharks Fish & Chicken operates a **multi-platform restaurant website system** se
 ### Order Type Selection Interface
 
 **Available Order Methods**:
+
 - **Pickup**: In-store collection with time estimates
-- **Delivery**: Address-based radius validation  
+- **Delivery**: Address-based radius validation
 - **In Store**: Dine-in option for location visits
 - **Curbside**: Contactless pickup with car details
 - **Phone Orders**: Integrated calling functionality
@@ -94,6 +94,7 @@ Sharks Fish & Chicken operates a **multi-platform restaurant website system** se
 ### Scheduling and Timing System
 
 **Order Timing Options**:
+
 - **ASAP**: 10-25 minute preparation estimate
 - **Schedule Order**: Future date/time selection interface
 - Time slot picker with availability checking
@@ -102,12 +103,14 @@ Sharks Fish & Chicken operates a **multi-platform restaurant website system** se
 ### Form Systems and Validation
 
 **Order Customization Forms**:
+
 - Dropdown selectors for sauces and seasonings
 - Quantity input fields with +/- controls
 - Special instructions text areas
 - Allergen preference checkboxes
 
 **Checkout and Payment Forms**:
+
 - Customer information collection
 - Address validation for delivery orders
 - Phone number formatting and verification
@@ -116,6 +119,7 @@ Sharks Fish & Chicken operates a **multi-platform restaurant website system** se
 ### Dynamic State Management
 
 **Loading and Status Indicators**:
+
 - "Loading, please wait..." process states
 - Real-time inventory availability checks
 - Order confirmation and tracking displays
@@ -126,6 +130,7 @@ Sharks Fish & Chicken operates a **multi-platform restaurant website system** se
 ### Brand Identity Elements
 
 **Logo System**:
+
 - Primary logo available in PNG (2000x1939px) and AI vector formats
 - Brand variations: "Big Sharks Fish & Chicken" and "Sharks Fish & Chicken"
 - Combination mark featuring text and imagery elements
@@ -134,6 +139,7 @@ Sharks Fish & Chicken operates a **multi-platform restaurant website system** se
 ### Typography Hierarchy
 
 **Text Structure Requirements**:
+
 - **Primary Headers**: Category names and major sections
 - **Secondary Headers**: Menu item names with bold emphasis
 - **Body Text**: Item descriptions using appetizing adjectives
@@ -149,22 +155,26 @@ Sharks Fish & Chicken operates a **multi-platform restaurant website system** se
 ### UI Component Library
 
 **Navigation Components**:
+
 - Top navigation with Home/Menu/Locations/Story sections
 - Location selection dropdown with service area mapping
 - Mobile hamburger menu for responsive navigation
 - Breadcrumb systems for location pages
 
 **Card Components**:
+
 - **Menu Item Cards**: Image, title, description, price, add-to-cart button
 - **Location Cards**: Address, hours, phone, directions, order online CTA
 - **Promotional Cards**: Special offers with compelling imagery
 
 **Button Systems**:
+
 - **Primary Actions**: "Order Online" with brand color background
 - **Secondary Actions**: "View Menu," "Get Directions" with outline style
 - **Cart Actions**: Add/remove controls with quantity displays
 
 **Form Elements**:
+
 - Input fields with clear labels and validation states
 - Dropdown menus for customization options
 - Radio buttons for order type selection
@@ -177,12 +187,14 @@ Sharks Fish & Chicken operates a **multi-platform restaurant website system** se
 **Multi-Platform Approach Identified**:
 
 1. **Custom Ordering Platform** (`ordersharksfishandchicken.com`)
+
    - Specialized restaurant ordering system
    - Location-specific subdomain architecture
    - Real-time inventory and order management
    - Integrated payment processing
 
 2. **Wix Implementation** (Georgia locations)
+
    - Wix website builder platform
    - Static image hosting via `static.wixstatic.com` CDN
    - Drag-and-drop content management
@@ -197,18 +209,21 @@ Sharks Fish & Chicken operates a **multi-platform restaurant website system** se
 ### Frontend Technical Requirements
 
 **HTML Structure**:
+
 - Semantic markup optimized for restaurant ordering
 - Mobile-first responsive design implementation
 - Clean URL structure with SEO-friendly patterns
 - Structured data markup for local business schema
 
 **CSS Architecture**:
+
 - Mobile-first responsive grid systems
 - Touch-friendly interface elements (44px+ touch targets)
 - Smooth transitions and loading state animations
 - Brand-consistent color scheme and typography scale
 
 **JavaScript Functionality**:
+
 - Asynchronous cart updates and menu loading
 - Real-time price calculations and inventory checks
 - Location-based service area validation
@@ -217,12 +232,14 @@ Sharks Fish & Chicken operates a **multi-platform restaurant website system** se
 ### Backend System Requirements
 
 **Database Architecture**:
+
 - **Menu Management**: Dynamic menu with real-time inventory tracking
 - **Order Processing**: Relational structure for orders, customers, locations
 - **Multi-location Support**: Centralized data with location-specific configurations
 - **Customer Management**: User accounts, order history, loyalty points
 
 **API Integration Requirements**:
+
 - Payment gateway APIs (credit cards, digital wallets)
 - Third-party delivery platform APIs (DoorDash, Uber Eats, Postmates)
 - Mapping and geolocation services for delivery zones
@@ -232,11 +249,13 @@ Sharks Fish & Chicken operates a **multi-platform restaurant website system** se
 ### Third-Party Integrations
 
 **Delivery Platform Integrations**:
+
 - **DoorDash**: DashPass subscription, real-time tracking, group ordering
 - **Uber Eats**: Uber One integration, upfront pricing, recommendation engine
 - **Postmates**: Menu synchronization, real-time availability updates
 
 **Payment Processing**:
+
 - Credit card processing with PCI compliance
 - Digital wallet support (Apple Pay, Google Pay, PayPal, Venmo)
 - Loyalty program integration with points accumulation
@@ -245,12 +264,14 @@ Sharks Fish & Chicken operates a **multi-platform restaurant website system** se
 ### Security and Performance Requirements
 
 **Security Implementation**:
+
 - SSL/TLS encryption across all platforms
 - PCI-compliant payment processing
 - Customer data encryption and privacy protection
 - Secure API authentication for integrations
 
 **Performance Optimization**:
+
 - CDN implementation for static assets
 - Image optimization and responsive sizing
 - Progressive loading for menu content
@@ -262,12 +283,14 @@ Sharks Fish & Chicken operates a **multi-platform restaurant website system** se
 ### Primary Customer Journeys
 
 **Location Discovery Flow**:
+
 1. Homepage visit → Location finder
 2. Service area detection or manual selection
 3. Nearest location display with hours/availability
 4. "Order Online" CTA to location-specific ordering platform
 
 **Menu Browsing and Ordering Flow**:
+
 1. Menu category selection
 2. Item browsing with filtering/search
 3. Item customization (seasonings, quantities)
@@ -281,6 +304,7 @@ Sharks Fish & Chicken operates a **multi-platform restaurant website system** se
 ### Responsive Design Behaviors
 
 **Mobile-Specific Features**:
+
 - Collapsible menu categories for easy browsing
 - Large, touch-friendly buttons throughout interface
 - Simplified checkout flow optimized for mobile
@@ -288,6 +312,7 @@ Sharks Fish & Chicken operates a **multi-platform restaurant website system** se
 - GPS integration for automatic location detection
 
 **Desktop Enhancements**:
+
 - Multi-column menu layouts for efficient browsing
 - Hover states on interactive elements
 - Expanded product information display
@@ -298,6 +323,7 @@ Sharks Fish & Chicken operates a **multi-platform restaurant website system** se
 ### Operating Hours System
 
 **Standard Hours Pattern**:
+
 - **Sunday-Thursday**: 10:00 AM - 12:00 AM
 - **Friday-Saturday**: 10:00 AM - 2:00 AM
 - Location-specific variations with dynamic display
@@ -306,6 +332,7 @@ Sharks Fish & Chicken operates a **multi-platform restaurant website system** se
 ### Location-Specific Customization
 
 **Per-Location Variables**:
+
 - Address and contact information
 - Operating hours and service availability
 - Menu variations and pricing differences
@@ -315,6 +342,7 @@ Sharks Fish & Chicken operates a **multi-platform restaurant website system** se
 ### Content Management Requirements
 
 **Dynamic Content Systems**:
+
 - Menu item management with pricing updates
 - Promotional banner rotation and scheduling
 - Location-specific content and announcements
@@ -326,6 +354,7 @@ Sharks Fish & Chicken operates a **multi-platform restaurant website system** se
 ### Loyalty and Customer Retention
 
 **Rewards Program Features**:
+
 - Point accumulation system for online orders
 - Redemption options for free food items
 - Tier-based benefits for frequent customers
@@ -335,6 +364,7 @@ Sharks Fish & Chicken operates a **multi-platform restaurant website system** se
 ### Analytics and Business Intelligence
 
 **Tracking Requirements**:
+
 - Order conversion tracking across platforms
 - Location performance analytics
 - Menu item popularity and profit analysis
@@ -344,6 +374,7 @@ Sharks Fish & Chicken operates a **multi-platform restaurant website system** se
 ### Administrative Backend
 
 **Management Interface Requirements**:
+
 - Multi-location dashboard with unified control
 - Menu management with bulk updates
 - Order monitoring and kitchen integration
@@ -355,20 +386,23 @@ Sharks Fish & Chicken operates a **multi-platform restaurant website system** se
 ### Development Approach
 
 **Phase 1: Core Website Structure**
+
 - Homepage with location finder
 - Menu display system with basic ordering
 - Location pages with essential information
 - Mobile-responsive design foundation
 
 **Phase 2: Ordering System Integration**
+
 - Shopping cart functionality
 - Payment processing integration
 - Order management and kitchen display
 - Customer notification systems
 
 **Phase 3: Advanced Features**
+
 - Third-party delivery platform integration
-- Loyalty program implementation  
+- Loyalty program implementation
 - Advanced analytics and reporting
 - Administrative dashboard completion
 
@@ -376,6 +410,7 @@ Sharks Fish & Chicken operates a **multi-platform restaurant website system** se
 
 **Single Platform Consolidation**:
 Rather than the current multi-platform approach, consider consolidating to a unified restaurant management platform that can handle:
+
 - Multi-location management
 - Integrated ordering and POS systems
 - Comprehensive analytics and reporting

@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
-import { Search, Plus } from "lucide-react";
+import React, { useState, useEffect, useRef } from "react";
+import { Search, Plus, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import Image from "next/image";
 import {
   Select,
   SelectContent,
@@ -112,10 +113,31 @@ function AddToCartDialog({ item, isOpen, onClose }: AddToCartDialogProps) {
 export default function MenuPage() {
   const { dispatch } = useCart();
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [selectedCategory, setSelectedCategory] = useState<string>('house-favorites');
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
   const [selectedSeasoning, setSelectedSeasoning] = useState<string>('Plain');
   const [specialInstructions, setSpecialInstructions] = useState<string>('');
+  const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
+
+  // Array of available images
+  const availableImages = [
+    "/Image1.jpg",
+    "/Image2.jpg", 
+    "/Image3.jpg",
+    "/image_003.png",
+    "/image_014.png",
+    "/image_015.png",
+    "/image_016.png",
+    "/image_001.png",
+    "/image_004.png",
+    "/image_005.png",
+    "/image_006.jpg"
+  ];
+
+  const getRandomImage = (categoryIndex: number, itemIndex: number) => {
+    const index = (categoryIndex * 10) + itemIndex;
+    return availableImages[index % availableImages.length];
+  };
 
   const handleAddToCart = () => {
     if (!selectedItem) return;
@@ -132,155 +154,207 @@ export default function MenuPage() {
     setSpecialInstructions('');
   };
 
-  const filteredCategories = MENU_DATA.filter(category => {
-    if (selectedCategory !== 'all' && category.id !== selectedCategory) {
-      return false;
+  const scrollToCategory = (categoryId: string) => {
+    const element = sectionRefs.current[categoryId];
+    if (element) {
+      const elementTop = element.offsetTop - 100; // Account for header
+      window.scrollTo({
+        top: elementTop,
+        behavior: 'smooth'
+      });
     }
-    
-    if (searchQuery) {
-      return category.items.some(item =>
-        item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.description.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-    }
-    
-    return true;
-  });
+  };
 
-  const filteredItems = (categoryItems: MenuItem[]) => {
-    if (!searchQuery) return categoryItems;
-    return categoryItems.filter(item =>
+  // Scroll-based navigation highlighting
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 150;
+      
+      let currentCategory = MENU_DATA[0].id;
+      
+      for (const category of MENU_DATA) {
+        const element = sectionRefs.current[category.id];
+        if (element) {
+          const elementTop = element.offsetTop - 200;
+          
+          if (scrollPosition >= elementTop) {
+            currentCategory = category.id;
+          }
+        }
+      }
+      
+      setSelectedCategory(currentCategory);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const filteredCategories = MENU_DATA.filter(category => {
+    if (!searchQuery) return true;
+    return category.items.some(item =>
       item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       item.description.toLowerCase().includes(searchQuery.toLowerCase())
     );
-  };
+  });
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-50">
       <NavigationHeader />
       
-      <main className="container mx-auto px-4 sm:px-6 py-6 sm:py-8">
-        <div className="text-center mb-6 sm:mb-8">
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Our Menu</h1>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-4 sm:px-0">
-            Discover our delicious selection of expertly fried chicken, fresh fish, and mouth-watering sides
-          </p>
-        </div>
-
-        {/* Search and Filter */}
-        <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 mb-6 sm:mb-8 max-w-2xl mx-auto">
-          <div className="relative flex-1">
+      {/* Mobile Sticky Header */}
+      <div className="md:hidden sticky top-20 bg-gray-50 z-30 border-b border-gray-200">
+        {/* Mobile Search Bar */}
+        <div className="px-4 py-3">
+          <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
             <Input
-              placeholder="Search menu items..."
+              placeholder="Search"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10 h-12 text-base border-2 border-gray-200 rounded-lg"
+              className="pl-10 border-gray-300 rounded-lg"
             />
           </div>
-          <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-            <SelectTrigger className="w-full sm:w-48 h-12 text-base border-2 border-gray-200 rounded-lg">
-              <SelectValue placeholder="All Categories" />
-            </SelectTrigger>
-            <SelectContent className="max-h-[300px]">
-              <SelectItem value="all" className="py-3">All Categories</SelectItem>
-              {MENU_DATA.map(category => (
-                <SelectItem key={category.id} value={category.id} className="py-3">
-                  {category.name}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
         </div>
 
-        {/* Menu Categories */}
-        <div className="space-y-8 sm:space-y-12">
-          {filteredCategories.map(category => {
-            const categoryItems = filteredItems(category.items);
-            if (categoryItems.length === 0) return null;
+        {/* Mobile Horizontal Menu */}
+        <div className="px-4 pb-4">
+          <div className="flex overflow-x-auto gap-2 pb-2 scrollbar-hide">
+            {MENU_DATA.map(category => (
+              <button
+                key={category.id}
+                onClick={() => scrollToCategory(category.id)}
+                className={`flex-shrink-0 px-4 py-2 rounded-full text-sm whitespace-nowrap transition-colors ${
+                  selectedCategory === category.id
+                    ? 'bg-gray-900 text-white'
+                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                }`}
+              >
+                {category.name}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
 
-            return (
-              <section key={category.id} className="border-b pb-6 sm:pb-8">
-                <div className="mb-4 sm:mb-6">
-                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">{category.name}</h2>
-                  {category.description && (
-                    <p className="text-gray-600 text-sm sm:text-base">{category.description}</p>
-                  )}
-                </div>
+      <div className="md:max-w-6xl md:mx-auto px-4 md:flex md:gap-3 py-6">
+        {/* Desktop Sidebar */}
+        <aside className="hidden md:block w-56 bg-white shadow-sm p-3 rounded-lg sticky top-24 self-start max-h-[calc(100vh-8rem)] overflow-y-auto flex-shrink-0 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+          <div className="mb-4">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+              <Input
+                placeholder="Search"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10 border-gray-300 rounded-lg text-sm"
+              />
+            </div>
+          </div>
 
-                <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                  {categoryItems.map(item => (
-                    <div
-                      key={item.id}
-                      className="border-2 border-gray-100 rounded-xl p-4 sm:p-6 hover:shadow-lg hover:border-teal-200 transition-all duration-200 bg-white"
-                    >
-                      <div className="mb-4">
-                        <div className="flex items-start justify-between mb-3">
-                          <div className="flex-1 pr-3">
-                            <div className="flex items-center gap-2 mb-2">
-                              <h3 className="font-bold text-base sm:text-lg text-gray-900 leading-tight">{item.name}</h3>
-                              {item.popular && (
-                                <Badge className="bg-orange-100 text-orange-800 text-xs px-2 py-1">
-                                  ⭐ Popular
-                                </Badge>
-                              )}
-                            </div>
-                            <p className="text-gray-600 text-sm sm:text-base mb-3 leading-relaxed">{item.description}</p>
-                            {item.portions && (
-                              <p className="text-gray-500 text-xs sm:text-sm bg-gray-50 px-2 py-1 rounded-full inline-block">
-                                📏 {item.portions}
-                              </p>
-                            )}
-                          </div>
-                          <div className="text-right flex-shrink-0">
-                            <p className="font-bold text-xl sm:text-2xl text-teal-600">
-                              ${item.price.toFixed(2)}
-                            </p>
-                          </div>
+          <nav className="space-y-1">
+            {MENU_DATA.map(category => (
+              <button
+                key={category.id}
+                onClick={() => scrollToCategory(category.id)}
+                className={`w-full text-left px-3 py-2 rounded-lg transition-colors text-sm ${
+                  selectedCategory === category.id
+                    ? 'bg-gray-200 text-gray-900 font-medium'
+                    : 'text-gray-600 hover:bg-gray-100'
+                }`}
+              >
+                {category.name}
+              </button>
+            ))}
+          </nav>
+        </aside>
+
+        {/* Main Content */}
+        <main className="flex-1 min-w-0 md:flex-1">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h1 className="text-2xl font-bold text-gray-900 mb-1">Our Menu</h1>
+              <p className="text-gray-600">Discover our delicious selection</p>
+            </div>
+            <div className="flex items-center gap-3">
+              <button className="text-gray-600 hover:text-gray-900">More</button>
+              <button className="text-gray-600 hover:text-gray-900">Sign in</button>
+              <button className="bg-black text-white px-4 py-2 rounded-lg flex items-center gap-2">
+                🛒 0
+              </button>
+            </div>
+          </div>
+
+          {/* All Categories */}
+          <div className="space-y-12">
+            {filteredCategories.map((category, categoryIndex) => {
+              const filteredItems = category.items.filter(item => {
+                if (!searchQuery) return true;
+                return item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                       item.description.toLowerCase().includes(searchQuery.toLowerCase());
+              });
+
+              if (filteredItems.length === 0) return null;
+
+              return (
+                <section
+                  key={category.id}
+                  ref={(el) => { sectionRefs.current[category.id] = el; }}
+                  className="scroll-mt-6"
+                >
+                  <div className="mb-6">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-2">{category.name}</h2>
+                    {category.description && (
+                      <p className="text-gray-600">{category.description}</p>
+                    )}
+                  </div>
+
+                  <div 
+                    className="flex gap-4 overflow-x-scroll pb-4 scrollbar-hide"
+                    style={{ overflowX: 'scroll', width: '100%' }}
+                  >
+                    {/* Duplicate items to ensure scrolling */}
+                    {[...filteredItems, ...filteredItems].map((item, itemIndex) => (
+                      <div key={`${item.id}-${itemIndex}`} className="flex-shrink-0 w-80 bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                        <div className="relative h-48">
+                          <Image
+                            src={getRandomImage(categoryIndex, itemIndex)}
+                            alt={item.name}
+                            fill
+                            className="object-cover"
+                          />
+                          <button
+                            onClick={() => setSelectedItem(item)}
+                            className="absolute bottom-3 right-3 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow"
+                          >
+                            <Plus className="h-5 w-5 text-gray-800" />
+                          </button>
                         </div>
-                      </div>
-
-                      <div className="flex items-center justify-between pt-3 border-t border-gray-100">
-                        <div className="flex gap-1">
-                          {item.seasonings && (
-                            <Badge variant="outline" className="text-xs border-teal-200 text-teal-700 bg-teal-50">
-                              🌶️ Seasonings
-                            </Badge>
+                        
+                        <div className="p-4">
+                          <div className="flex items-start justify-between mb-2">
+                            <h3 className="font-semibold text-lg text-gray-900 pr-2">{item.name}</h3>
+                            <div className="flex items-center gap-2 flex-shrink-0">
+                              <span className="font-bold text-lg">${item.price.toFixed(2)}</span>
+                              <button className="text-gray-400 hover:text-red-500">
+                                <Heart className="h-4 w-4" />
+                              </button>
+                            </div>
+                          </div>
+                          <p className="text-gray-600 text-sm mb-3 line-clamp-2">{item.description}</p>
+                          {item.portions && (
+                            <p className="text-gray-500 text-xs">{item.portions}</p>
                           )}
                         </div>
-                        <Button
-                          size="sm"
-                          onClick={() => setSelectedItem(item)}
-                          className="bg-teal-600 hover:bg-teal-700 text-white h-10 px-4 rounded-lg font-semibold shadow-sm hover:shadow-md transition-all"
-                        >
-                          <Plus className="h-4 w-4 mr-2" />
-                          Add to Cart
-                        </Button>
                       </div>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            );
-          })}
-        </div>
-
-        {filteredCategories.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-xl text-gray-600">No menu items found matching your search.</p>
-            <Button
-              variant="outline"
-              onClick={() => {
-                setSearchQuery('');
-                setSelectedCategory('all');
-              }}
-              className="mt-4"
-            >
-              Clear Search
-            </Button>
+                    ))}
+                  </div>
+                </section>
+              );
+            })}
           </div>
-        )}
-      </main>
+        </main>
+      </div>
 
       <Footer />
 

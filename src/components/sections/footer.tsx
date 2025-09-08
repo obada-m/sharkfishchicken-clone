@@ -9,11 +9,17 @@ export default function Footer() {
           {/* Logo and Description */}
           <div className="col-span-1 md:col-span-2">
             <Link href="/" className="flex items-center mb-4">
-              <img
-                src="https://static-content.owner.com/funnel/images/82964f7f-d3f9-403d-bb72-e8c8c86200f7?v=3084086027&h=56&auto=format&dpr=1"
-                alt="Sharks Fish & Chicken"
-                className="h-14 w-auto brightness-0 invert"
-              />
+              <div className="flex items-center">
+                <img
+                  src="https://static-content.owner.com/funnel/images/82964f7f-d3f9-403d-bb72-e8c8c86200f7?v=3084086027&h=56&auto=format&dpr=1"
+                  alt="Sharks Fish & Chicken"
+                  className="h-14 w-auto"
+                />
+                <div className="ml-3">
+                  <div className="text-white font-bold text-xl">Sharks</div>
+                  <div className="text-gray-300 text-sm">Fish & Chicken</div>
+                </div>
+              </div>
             </Link>
             <p className="text-gray-300 text-sm leading-relaxed mb-4">
               Best Fried Chicken Restaurant in IL. Experience a crispy, flavorful sensation in every bite with our authentic recipes and fresh ingredients.
@@ -42,7 +48,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/" className="text-gray-300 hover:text-white transition-colors">
@@ -74,7 +80,7 @@ export default function Footer() {
 
           {/* Legal & Support */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Support</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">Support</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/contact" className="text-gray-300 hover:text-white transition-colors">
@@ -107,20 +113,9 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="text-center">
             <p className="text-gray-400 text-sm">
               © 2024 Sharks Fish & Chicken. All rights reserved.
-            </p>
-            <p className="text-gray-400 text-sm mt-2 md:mt-0">
-              Made with{" "}
-              <a 
-                href="https://owner.com" 
-                className="text-teal-400 hover:text-teal-300 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Owner
-              </a>
             </p>
           </div>
         </div>

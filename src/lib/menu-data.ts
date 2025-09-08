@@ -417,51 +417,39 @@ export const MENU_DATA: MenuCategory[] = [
 
 export const LOCATIONS = [
   {
-    id: 'posen',
-    name: 'Posen',
-    address: '14727 Kedzie Ave, Posen, IL 60469',
-    phone: '(708) 385-7427',
+    id: 'merrilville',
+    name: 'Merrilville',
+    address: 'Merrilville, IN',
+    phone: '(219) 555-0001',
     hours: {
       'Sunday-Thursday': '10:00 AM - 12:00 AM',
       'Friday-Saturday': '10:00 AM - 2:00 AM'
     },
-    orderUrl: 'posen.ordersharksfishandchicken.com',
+    orderUrl: 'merrilville.ordersharksfishandchicken.com',
     deliveryRadius: 5
   },
   {
-    id: 'hazelcrest',
-    name: 'Hazel Crest',
-    address: '17455 Kedzie Ave, Hazel Crest, IL 60429',
-    phone: '(708) 335-7427',
+    id: 'lancing',
+    name: 'Lancing',
+    address: 'Torrence Avenue, Lancing, IL',
+    phone: '(708) 555-0002',
     hours: {
       'Sunday-Thursday': '10:00 AM - 12:00 AM',
       'Friday-Saturday': '10:00 AM - 2:00 AM'
     },
-    orderUrl: 'hazelcrest.ordersharksfishandchicken.com',
+    orderUrl: 'lancing.ordersharksfishandchicken.com',
     deliveryRadius: 5
   },
   {
-    id: 'harvey',
-    name: 'Harvey',
-    address: '159 W 159th St, Harvey, IL 60426',
-    phone: '(708) 331-7427',
+    id: 'sauk-village',
+    name: 'Sauk Village',
+    address: 'Sauk Trail, Sauk Village, IL',
+    phone: '(708) 555-0003',
     hours: {
       'Sunday-Thursday': '10:00 AM - 12:00 AM',
       'Friday-Saturday': '10:00 AM - 2:00 AM'
     },
-    orderUrl: 'harvey.ordersharksfishandchicken.com',
-    deliveryRadius: 5
-  },
-  {
-    id: 'hillside',
-    name: 'Hillside',
-    address: '4741 Butterfield Rd, Hillside, IL 60162',
-    phone: '(708) 449-7427',
-    hours: {
-      'Sunday-Thursday': '10:00 AM - 12:00 AM',
-      'Friday-Saturday': '10:00 AM - 2:00 AM'
-    },
-    orderUrl: 'hillside.ordersharksfishandchicken.com',
+    orderUrl: 'saukvillage.ordersharksfishandchicken.com',
     deliveryRadius: 5
   }
 ];
