@@ -1,9 +1,9 @@
 import Image from 'next/image';
 
 const galleryImages = [
-  "https://static-content.owner.com/funnel/images/3730e797-f8ff-4922-a813-92cd266549e1?v=5849870229&w=3840&q=80&auto=format",
-  "https://static-content.owner.com/funnel/images/70f0e604-6c1c-4cc3-aa56-15fe60f9ccfd?v=1698006705&w=3840&q=80&auto=format",
-  "https://static-content.owner.com/funnel/images/feefa084-c2d3-4427-8cf2-f18b1cf402e9?v=1261807793&w=3840&q=80&auto=format",
+  "/Grid1.JPG",
+  "/Grid2.JPG",
+  "/Grid3.JPG",
   "https://static-content.owner.com/funnel/images/14f4957a-b99c-40c4-a259-02a482b1dc4f?v=7652870070&w=3840&q=80&auto=format",
   "https://static-content.owner.com/funnel/images/2449e4f4-ba39-4bde-84a7-123274da0999?v=9105943787&w=3840&q=80&auto=format",
   "https://static-content.owner.com/funnel/images/08a81a86-b3ad-4bd2-8dcd-bcd316a5abcd?v=7163223556&w=3840&q=80&auto=format",

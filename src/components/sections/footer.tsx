@@ -22,7 +22,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-gray-300 text-sm leading-relaxed mb-4">
-              Best Fried Chicken Restaurant in IL. Experience a crispy, flavorful sensation in every bite with our authentic recipes and fresh ingredients.
+              Best Fried Chicken Restaurant in IN. Experience a crispy, flavorful sensation in every bite with our authentic recipes and fresh ingredients.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">

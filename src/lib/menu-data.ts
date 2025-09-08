@@ -31,33 +31,36 @@ export const MENU_DATA: MenuCategory[] = [
       {
         id: 'sharks-special-combo',
         name: 'Sharks Special Combo',
-        description: 'Delicious crispy fish and chicken combo with fries and coleslaw',
+        description:
+          'Delicious crispy fish and chicken combo with fries and coleslaw',
         price: 14.99,
         category: 'house-favorites',
         portions: '2 pieces fish, 2 pieces chicken',
         seasonings: SEASONINGS,
-        popular: true
+        popular: true,
       },
       {
         id: 'golden-wings-platter',
         name: 'Golden Wings Platter',
-        description: 'Expertly fried golden wings with your choice of seasoning',
+        description:
+          'Expertly fried golden wings with your choice of seasoning',
         price: 12.99,
         category: 'house-favorites',
         portions: '8 wings',
         seasonings: SEASONINGS,
-        popular: true
+        popular: true,
       },
       {
         id: 'catfish-dinner',
         name: 'Catfish Dinner Special',
-        description: 'Fresh catfish fillet, crispy and golden, served with sides',
+        description:
+          'Fresh catfish fillet, crispy and golden, served with sides',
         price: 11.99,
         category: 'house-favorites',
         portions: '2 fillets',
-        seasonings: SEASONINGS
-      }
-    ]
+        seasonings: SEASONINGS,
+      },
+    ],
   },
   {
     id: 'wings',
@@ -72,7 +75,7 @@ export const MENU_DATA: MenuCategory[] = [
         price: 8.99,
         category: 'wings',
         portions: '6 wings',
-        seasonings: SEASONINGS
+        seasonings: SEASONINGS,
       },
       {
         id: 'jumbo-wings',
@@ -81,7 +84,7 @@ export const MENU_DATA: MenuCategory[] = [
         price: 12.99,
         category: 'wings',
         portions: '6 jumbo wings',
-        seasonings: SEASONINGS
+        seasonings: SEASONINGS,
       },
       {
         id: 'wing-combo',
@@ -90,9 +93,9 @@ export const MENU_DATA: MenuCategory[] = [
         price: 10.99,
         category: 'wings',
         portions: '6 wings',
-        seasonings: SEASONINGS
-      }
-    ]
+        seasonings: SEASONINGS,
+      },
+    ],
   },
   {
     id: 'fish-dinners',
@@ -107,7 +110,7 @@ export const MENU_DATA: MenuCategory[] = [
         price: 11.99,
         category: 'fish-dinners',
         portions: '2 fillets',
-        seasonings: SEASONINGS
+        seasonings: SEASONINGS,
       },
       {
         id: 'ocean-perch-dinner',
@@ -116,7 +119,7 @@ export const MENU_DATA: MenuCategory[] = [
         price: 10.99,
         category: 'fish-dinners',
         portions: '2 fillets',
-        seasonings: SEASONINGS
+        seasonings: SEASONINGS,
       },
       {
         id: 'tilapia-dinner',
@@ -125,7 +128,7 @@ export const MENU_DATA: MenuCategory[] = [
         price: 12.99,
         category: 'fish-dinners',
         portions: '2 fillets',
-        seasonings: SEASONINGS
+        seasonings: SEASONINGS,
       },
       {
         id: 'jack-salmon-dinner',
@@ -134,9 +137,9 @@ export const MENU_DATA: MenuCategory[] = [
         price: 13.99,
         category: 'fish-dinners',
         portions: '2 fillets',
-        seasonings: SEASONINGS
-      }
-    ]
+        seasonings: SEASONINGS,
+      },
+    ],
   },
   {
     id: 'chicken-dinners',
@@ -151,7 +154,7 @@ export const MENU_DATA: MenuCategory[] = [
         price: 9.99,
         category: 'chicken-dinners',
         portions: '6 wings',
-        seasonings: SEASONINGS
+        seasonings: SEASONINGS,
       },
       {
         id: 'chicken-tenders-dinner',
@@ -160,7 +163,7 @@ export const MENU_DATA: MenuCategory[] = [
         price: 10.99,
         category: 'chicken-dinners',
         portions: '4 tenders',
-        seasonings: SEASONINGS
+        seasonings: SEASONINGS,
       },
       {
         id: 'mixed-chicken-dinner',
@@ -169,9 +172,9 @@ export const MENU_DATA: MenuCategory[] = [
         price: 11.99,
         category: 'chicken-dinners',
         portions: '3 pieces mixed',
-        seasonings: SEASONINGS
-      }
-    ]
+        seasonings: SEASONINGS,
+      },
+    ],
   },
   {
     id: 'shrimp-dinners',
@@ -186,7 +189,7 @@ export const MENU_DATA: MenuCategory[] = [
         price: 12.99,
         category: 'shrimp-dinners',
         portions: '10 pieces',
-        seasonings: SEASONINGS
+        seasonings: SEASONINGS,
       },
       {
         id: 'jumbo-shrimp-dinner',
@@ -195,9 +198,9 @@ export const MENU_DATA: MenuCategory[] = [
         price: 15.99,
         category: 'shrimp-dinners',
         portions: '8 jumbo pieces',
-        seasonings: SEASONINGS
-      }
-    ]
+        seasonings: SEASONINGS,
+      },
+    ],
   },
   {
     id: 'combo-dinners',
@@ -211,7 +214,7 @@ export const MENU_DATA: MenuCategory[] = [
         description: 'Choose any two items from our menu',
         price: 13.99,
         category: 'combo-dinners',
-        portions: '2 items of choice'
+        portions: '2 items of choice',
       },
       {
         id: 'three-item-combo',
@@ -219,9 +222,9 @@ export const MENU_DATA: MenuCategory[] = [
         description: 'Choose any three items from our menu',
         price: 16.99,
         category: 'combo-dinners',
-        portions: '3 items of choice'
-      }
-    ]
+        portions: '3 items of choice',
+      },
+    ],
   },
   {
     id: 'family-meals',
@@ -235,7 +238,7 @@ export const MENU_DATA: MenuCategory[] = [
         description: 'Perfect for large gatherings',
         price: 45.99,
         category: 'family-meals',
-        portions: '30 pieces mixed chicken'
+        portions: '30 pieces mixed chicken',
       },
       {
         id: 'family-fish-20pc',
@@ -243,7 +246,7 @@ export const MENU_DATA: MenuCategory[] = [
         description: 'Fresh fish for the whole family',
         price: 39.99,
         category: 'family-meals',
-        portions: '20 pieces mixed fish'
+        portions: '20 pieces mixed fish',
       },
       {
         id: 'mega-family-combo',
@@ -251,9 +254,9 @@ export const MENU_DATA: MenuCategory[] = [
         description: 'Fish, chicken, and sides for large groups',
         price: 79.99,
         category: 'family-meals',
-        portions: '50+ pieces mixed'
-      }
-    ]
+        portions: '50+ pieces mixed',
+      },
+    ],
   },
   {
     id: 'party-wings',
@@ -268,7 +271,7 @@ export const MENU_DATA: MenuCategory[] = [
         price: 49.99,
         category: 'party-wings',
         portions: '50 wings',
-        seasonings: SEASONINGS
+        seasonings: SEASONINGS,
       },
       {
         id: 'party-wings-100',
@@ -277,9 +280,9 @@ export const MENU_DATA: MenuCategory[] = [
         price: 89.99,
         category: 'party-wings',
         portions: '100 wings',
-        seasonings: SEASONINGS
-      }
-    ]
+        seasonings: SEASONINGS,
+      },
+    ],
   },
   {
     id: 'kids-meals',
@@ -293,7 +296,7 @@ export const MENU_DATA: MenuCategory[] = [
         description: 'Golden nuggets with fries and juice',
         price: 7.99,
         category: 'kids-meals',
-        portions: '6 nuggets'
+        portions: '6 nuggets',
       },
       {
         id: 'kids-fish-strips',
@@ -301,9 +304,9 @@ export const MENU_DATA: MenuCategory[] = [
         description: 'Crispy fish strips with fries',
         price: 7.99,
         category: 'kids-meals',
-        portions: '3 strips'
-      }
-    ]
+        portions: '3 strips',
+      },
+    ],
   },
   {
     id: 'sandwiches',
@@ -316,23 +319,23 @@ export const MENU_DATA: MenuCategory[] = [
         name: 'Fish Sandwich',
         description: 'Crispy fish fillet with lettuce and mayo',
         price: 8.99,
-        category: 'sandwiches'
+        category: 'sandwiches',
       },
       {
         id: 'chicken-sandwich',
         name: 'Chicken Sandwich',
         description: 'Juicy chicken breast with pickles',
         price: 8.99,
-        category: 'sandwiches'
+        category: 'sandwiches',
       },
       {
         id: 'shrimp-po-boy',
         name: 'Shrimp Po-Boy',
         description: 'New Orleans style shrimp sandwich',
         price: 10.99,
-        category: 'sandwiches'
-      }
-    ]
+        category: 'sandwiches',
+      },
+    ],
   },
   {
     id: 'sides',
@@ -345,37 +348,37 @@ export const MENU_DATA: MenuCategory[] = [
         name: 'Seasoned Fries',
         description: 'Golden fries with our special seasoning',
         price: 3.99,
-        category: 'sides'
+        category: 'sides',
       },
       {
         id: 'fried-okra',
         name: 'Fried Okra',
         description: 'Crispy Southern-style okra',
         price: 4.99,
-        category: 'sides'
+        category: 'sides',
       },
       {
         id: 'cornmeal-balls',
         name: 'Cornmeal Balls',
         description: 'House-made cornmeal balls',
         price: 4.49,
-        category: 'sides'
+        category: 'sides',
       },
       {
         id: 'coleslaw',
         name: 'Coleslaw',
         description: 'Fresh, creamy coleslaw',
         price: 2.99,
-        category: 'sides'
+        category: 'sides',
       },
       {
         id: 'garden-salad',
         name: 'Garden Salad',
         description: 'Fresh mixed greens with vegetables',
         price: 6.99,
-        category: 'sides'
-      }
-    ]
+        category: 'sides',
+      },
+    ],
   },
   {
     id: 'beverages',
@@ -388,31 +391,31 @@ export const MENU_DATA: MenuCategory[] = [
         name: '12oz Soft Drink',
         description: 'Coca-Cola products',
         price: 1.99,
-        category: 'beverages'
+        category: 'beverages',
       },
       {
         id: 'soda-20oz',
         name: '20oz Soft Drink',
         description: 'Coca-Cola products',
         price: 2.49,
-        category: 'beverages'
+        category: 'beverages',
       },
       {
         id: 'sweet-tea',
         name: 'Sweet Tea',
         description: 'Fresh-brewed Southern sweet tea',
         price: 2.29,
-        category: 'beverages'
+        category: 'beverages',
       },
       {
         id: 'peach-cobbler',
         name: 'Peach Cobbler',
         description: 'House-made peach cobbler',
         price: 4.99,
-        category: 'beverages'
-      }
-    ]
-  }
+        category: 'beverages',
+      },
+    ],
+  },
 ];
 
 export const LOCATIONS = [
@@ -420,55 +423,56 @@ export const LOCATIONS = [
     id: 'merrilville',
     name: 'Merrilville',
     address: 'Merrilville, IN',
-    phone: '(219) 555-0001',
+    phone: '+1 (219) 472 0608',
     hours: {
       'Sunday-Thursday': '10:00 AM - 12:00 AM',
-      'Friday-Saturday': '10:00 AM - 2:00 AM'
+      'Friday-Saturday': '10:00 AM - 2:00 AM',
     },
     orderUrl: 'merrilville.ordersharksfishandchicken.com',
-    deliveryRadius: 5
+    deliveryRadius: 5,
   },
   {
     id: 'lancing',
     name: 'Lancing',
-    address: 'Torrence Avenue, Lancing, IL',
+    address: 'Torrence Avenue, Lancing, IN',
     phone: '(708) 555-0002',
     hours: {
       'Sunday-Thursday': '10:00 AM - 12:00 AM',
-      'Friday-Saturday': '10:00 AM - 2:00 AM'
+      'Friday-Saturday': '10:00 AM - 2:00 AM',
     },
     orderUrl: 'lancing.ordersharksfishandchicken.com',
-    deliveryRadius: 5
+    deliveryRadius: 5,
   },
   {
     id: 'sauk-village',
     name: 'Sauk Village',
-    address: 'Sauk Trail, Sauk Village, IL',
+    address: 'Sauk Trail, Sauk Village, IN',
     phone: '(708) 555-0003',
     hours: {
       'Sunday-Thursday': '10:00 AM - 12:00 AM',
-      'Friday-Saturday': '10:00 AM - 2:00 AM'
+      'Friday-Saturday': '10:00 AM - 2:00 AM',
     },
     orderUrl: 'saukvillage.ordersharksfishandchicken.com',
-    deliveryRadius: 5
-  }
+    deliveryRadius: 5,
+  },
 ];
 
-export function getMenuByCategory(categoryId: string): MenuCategory | undefined {
-  return MENU_DATA.find(category => category.id === categoryId);
+export function getMenuByCategory(
+  categoryId: string
+): MenuCategory | undefined {
+  return MENU_DATA.find((category) => category.id === categoryId);
 }
 
 export function getMenuItem(itemId: string): MenuItem | undefined {
   for (const category of MENU_DATA) {
-    const item = category.items.find(item => item.id === itemId);
+    const item = category.items.find((item) => item.id === itemId);
     if (item) return item;
   }
   return undefined;
 }
 
 export function getPopularItems(): MenuItem[] {
-  return MENU_DATA
-    .flatMap(category => category.items)
-    .filter(item => item.popular)
+  return MENU_DATA.flatMap((category) => category.items)
+    .filter((item) => item.popular)
     .slice(0, 6);
 }

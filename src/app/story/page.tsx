@@ -16,7 +16,7 @@ export default function StoryPage() {
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Story</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            From humble beginnings to serving communities across Illinois, discover the passion and tradition behind Sharks Fish & Chicken
+            From humble beginnings to serving communities across Indiana, discover the passion and tradition behind Sharks Fish & Chicken
           </p>
         </div>
 
@@ -31,7 +31,7 @@ export default function StoryPage() {
                   Sharks Fish & Chicken was born from a simple passion: creating the most delicious, 
                   crispy, and flavorful fried chicken and fish that brings families and communities together. 
                   What started as a dream to serve authentic, expertly prepared soul food has grown into 
-                  a beloved Illinois institution.
+                  a beloved Indiana institution.
                 </p>
               </div>
             </div>
@@ -46,7 +46,7 @@ export default function StoryPage() {
                 </p>
                 <p>
                   We believe great food brings people together, and we're proud to be part of special 
-                  family moments, celebrations, and everyday meals throughout our Illinois communities.
+                  family moments, celebrations, and everyday meals throughout our Indiana communities.
                 </p>
               </div>
               
@@ -116,9 +116,9 @@ export default function StoryPage() {
 
         {/* Our Locations Today */}
         <div className="bg-gray-50 rounded-lg p-8 mb-16">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-6">Serving Illinois Communities</h2>
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-6">Serving Indiana Communities</h2>
           <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
-            Today, we're proud to operate three locations across Illinois and Indiana, each committed to the same 
+            Today, we're proud to operate three locations across Indiana, each committed to the same 
             high standards and authentic flavors that made us a local favorite.
           </p>
           
@@ -129,11 +129,11 @@ export default function StoryPage() {
             </div>
             <div className="bg-white rounded-lg p-4">
               <h3 className="font-semibold text-lg text-gray-900">Lancing</h3>
-              <p className="text-sm text-gray-600">Torrence Avenue, Lancing, IL</p>
+              <p className="text-sm text-gray-600">Torrence Avenue, Lancing, IN</p>
             </div>
             <div className="bg-white rounded-lg p-4">
               <h3 className="font-semibold text-lg text-gray-900">Sauk Village</h3>
-              <p className="text-sm text-gray-600">Sauk Trail, Sauk Village, IL</p>
+              <p className="text-sm text-gray-600">Sauk Trail, Sauk Village, IN</p>
             </div>
           </div>
         </div>
