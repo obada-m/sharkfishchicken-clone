@@ -309,13 +309,9 @@ export default function MenuPage() {
                     )}
                   </div>
 
-                  <div 
-                    className="flex gap-4 overflow-x-scroll pb-4 scrollbar-hide"
-                    style={{ overflowX: 'scroll', width: '100%' }}
-                  >
-                    {/* Duplicate items to ensure scrolling */}
-                    {[...filteredItems, ...filteredItems].map((item, itemIndex) => (
-                      <div key={`${item.id}-${itemIndex}`} className="flex-shrink-0 w-80 bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {filteredItems.map((item, itemIndex) => (
+                      <div key={item.id} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                         <div className="relative h-48">
                           <Image
                             src={getRandomImage(categoryIndex, itemIndex)}

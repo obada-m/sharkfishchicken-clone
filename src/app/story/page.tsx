@@ -18,8 +18,8 @@ export default function StoryPage() {
             Our Story
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            From humble beginnings to serving communities across Indiana,
-            discover the passion and tradition behind Sharks Fish & Chicken
+            From humble beginnings to serving communities, discover the passion
+            and tradition behind Sharks Fish & Chicken
           </p>
         </div>
 
@@ -51,7 +51,7 @@ export default function StoryPage() {
                   the most delicious, crispy, and flavorful fried chicken and
                   fish that brings families and communities together. What
                   started as a dream to serve authentic, expertly prepared soul
-                  food has grown into a beloved Indiana institution.
+                  food has grown into a beloved institution.
                 </p>
               </div>
             </div>
@@ -70,7 +70,7 @@ export default function StoryPage() {
                 <p>
                   We believe great food brings people together, and we're proud
                   to be part of special family moments, celebrations, and
-                  everyday meals throughout our Indiana communities.
+                  everyday meals throughout our communities.
                 </p>
               </div>
 
@@ -167,12 +167,12 @@ export default function StoryPage() {
         {/* Our Locations Today */}
         <div className="bg-gray-50 rounded-lg p-8 mb-16">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-6">
-            Serving Indiana Communities
+            Serving Communities
           </h2>
           <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
-            Today, we're proud to operate three locations across Indiana, each
-            committed to the same high standards and authentic flavors that made
-            us a local favorite.
+            Today, we're proud to operate three locations, each committed to the
+            same high standards and authentic flavors that made us a local
+            favorite.
           </p>
 
           <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-6 text-center">
@@ -183,9 +183,9 @@ export default function StoryPage() {
               <p className="text-sm text-gray-600">Merrilville, IN</p>
             </div>
             <div className="bg-white rounded-lg p-4">
-              <h3 className="font-semibold text-lg text-gray-900">Lancing</h3>
+              <h3 className="font-semibold text-lg text-gray-900">Lansing</h3>
               <p className="text-sm text-gray-600">
-                Torrence Avenue, Lancing, IN
+                Torrence Avenue, Lansing, IL
               </p>
             </div>
             <div className="bg-white rounded-lg p-4">
@@ -193,7 +193,7 @@ export default function StoryPage() {
                 Sauk Village
               </h3>
               <p className="text-sm text-gray-600">
-                Sauk Trail, Sauk Village, IN
+                Sauk Trail, Sauk Village, IL
               </p>
             </div>
           </div>

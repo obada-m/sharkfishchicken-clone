@@ -19,7 +19,7 @@ export default function LocationsPage() {
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Find a Sharks Fish & Chicken location near you. We're proud to serve
-            delicious fried chicken and fish across Indiana.
+            delicious fried chicken and fish.
           </p>
         </div>
 
@@ -148,8 +148,8 @@ export default function LocationsPage() {
                 <div className="text-3xl mb-2">👨‍👩‍👧‍👦</div>
                 <h3 className="font-semibold mb-2">Family Owned</h3>
                 <p className="text-sm text-gray-600">
-                  Serving the Indiana community with pride for years with
-                  authentic flavors
+                  Serving the community with pride for years with authentic
+                  flavors
                 </p>
               </div>
             </div>

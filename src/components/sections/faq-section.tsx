@@ -159,10 +159,10 @@ const faqItems = [
         </a>
         ,{' '}
         <a
-          href="https://sharkfishchicken.com/sharksfishchicken-lancing"
+          href="https://sharkfishchicken.com/sharksfishchicken-lansing"
           className="text-primary hover:underline"
         >
-          Lancing
+          Lansing
         </a>
         ,{' '}
         <a

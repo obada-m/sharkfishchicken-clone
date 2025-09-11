@@ -78,17 +78,17 @@ const locationsData: Location[] = [
       'https://sharkfishchicken.com/menu/sharksfishchicken-merrilville',
   },
   {
-    name: 'Lancing',
-    slug: 'lancing',
-    fullName: 'Sharks Fish & Chicken Lancing, IN',
-    locationUrl: 'https://sharkfishchicken.com/sharksfishandchicken-lancing',
+    name: 'Lansing',
+    slug: 'lansing',
+    fullName: 'Sharks Fish & Chicken Lansing, IL',
+    locationUrl: 'https://sharkfishchicken.com/sharksfishandchicken-lansing',
     getDirectionsUrl:
-      'https://www.google.com/maps/dir/?api=1&destination=Torrence%20Avenue%2C%20Lancing%2C%20IN',
-    addressLines: ['Torrence Avenue', 'Lancing, IN'],
+      'https://www.google.com/maps/dir/?api=1&destination=Torrence%20Avenue%2C%20Lansing%2C%20IN',
+    addressLines: ['Torrence Avenue', 'Lansing, IL'],
     phone: '(708) 555-0002',
     phoneHref: 'tel:+17085550002',
-    email: 'lancing@sharks.com',
-    emailHref: 'mailto:lancing@sharks.com',
+    email: 'lansing@sharks.com',
+    emailHref: 'mailto:lansing@sharks.com',
     hours: [
       {
         day: 'Sunday',
@@ -127,16 +127,16 @@ const locationsData: Location[] = [
       },
     ],
     orderOnlineUrl:
-      'https://sharkfishchicken.com/menu/sharksfishandchicken-lancing',
+      'https://sharkfishchicken.com/menu/sharksfishandchicken-lansing',
   },
   {
     name: 'Sauk Village',
     slug: 'sauk-village',
-    fullName: 'Sharks Fish & Chicken Sauk Village, IN',
+    fullName: 'Sharks Fish & Chicken Sauk Village, IL',
     locationUrl: 'https://sharkfishchicken.com/sharksfishchicken-sauk-village',
     getDirectionsUrl:
       'https://www.google.com/maps/dir/?api=1&destination=Sauk%20Trail%2C%20Sauk%20Village%2C%20IN',
-    addressLines: ['Sauk Trail', 'Sauk Village, IN'],
+    addressLines: ['Sauk Trail', 'Sauk Village, IL'],
     phone: '(708) 555-0003',
     phoneHref: 'tel:+17085550003',
     email: 'saukvillage@sharks.com',

@@ -432,21 +432,21 @@ export const LOCATIONS = [
     deliveryRadius: 5,
   },
   {
-    id: 'lancing',
-    name: 'Lancing',
-    address: 'Torrence Avenue, Lancing, IN',
+    id: 'lansing',
+    name: 'Lansing',
+    address: 'Torrence Avenue, Lansing, IL',
     phone: '(708) 555-0002',
     hours: {
       'Sunday-Thursday': '10:00 AM - 12:00 AM',
       'Friday-Saturday': '10:00 AM - 2:00 AM',
     },
-    orderUrl: 'lancing.ordersharksfishandchicken.com',
+    orderUrl: 'lansing.ordersharksfishandchicken.com',
     deliveryRadius: 5,
   },
   {
     id: 'sauk-village',
     name: 'Sauk Village',
-    address: 'Sauk Trail, Sauk Village, IN',
+    address: 'Sauk Trail, Sauk Village, IL',
     phone: '(708) 555-0003',
     hours: {
       'Sunday-Thursday': '10:00 AM - 12:00 AM',
