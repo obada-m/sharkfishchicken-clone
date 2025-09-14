@@ -420,9 +420,22 @@ export const MENU_DATA: MenuCategory[] = [
 
 export const LOCATIONS = [
   {
+    id: 'lansing',
+    name: 'Sharks Lansing',
+    address: '17669 Torrence Ave, Lansing, IL 60438',
+    phone: '(708) 555-0001',
+    hours: {
+      'Sunday-Thursday': '10:00 AM - 12:00 AM',
+      'Friday-Saturday': '10:00 AM - 2:00 AM',
+    },
+    orderUrl: 'lansing.ordersharksfishandchicken.com',
+    deliveryRadius: 5,
+    googleMapsUrl: 'https://www.google.com/maps/dir/?api=1&destination=17669+Torrence+Ave,+Lansing,+IL+60438',
+  },
+  {
     id: 'merrilville',
-    name: 'Merrilville',
-    address: 'Merrilville, IN',
+    name: 'Sharks Merrilville',
+    address: '510 W Lincoln Hwy, Merrillville, IN 46410',
     phone: '+1 (219) 472 0608',
     hours: {
       'Sunday-Thursday': '10:00 AM - 12:00 AM',
@@ -430,23 +443,12 @@ export const LOCATIONS = [
     },
     orderUrl: 'merrilville.ordersharksfishandchicken.com',
     deliveryRadius: 5,
-  },
-  {
-    id: 'lansing',
-    name: 'Lansing',
-    address: 'Torrence Avenue, Lansing, IL',
-    phone: '(708) 555-0002',
-    hours: {
-      'Sunday-Thursday': '10:00 AM - 12:00 AM',
-      'Friday-Saturday': '10:00 AM - 2:00 AM',
-    },
-    orderUrl: 'lansing.ordersharksfishandchicken.com',
-    deliveryRadius: 5,
+    googleMapsUrl: 'https://www.google.com/maps/dir/?api=1&destination=510+W+Lincoln+Hwy,+Merrillville,+IN+46410',
   },
   {
     id: 'sauk-village',
-    name: 'Sauk Village',
-    address: 'Sauk Trail, Sauk Village, IL',
+    name: 'Sharks Sauk Village',
+    address: '16 E Sauk Trail, Sauk Village, IL 60411',
     phone: '(708) 555-0003',
     hours: {
       'Sunday-Thursday': '10:00 AM - 12:00 AM',
@@ -454,6 +456,7 @@ export const LOCATIONS = [
     },
     orderUrl: 'saukvillage.ordersharksfishandchicken.com',
     deliveryRadius: 5,
+    googleMapsUrl: 'https://www.google.com/maps/dir/?api=1&destination=16+E+Sauk+Trail,+Sauk+Village,+IL+60411',
   },
 ];
 

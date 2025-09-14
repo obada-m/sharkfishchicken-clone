@@ -43,7 +43,7 @@ export default function WelcomeHeroSection() {
       <div className="relative container mx-auto px-6 h-full flex items-center z-30">
         <div className="max-w-2xl">
           <p className="text-white text-lg font-medium mb-4">
-            Best Fried Chicken Restaurant
+            Best Fried Fish and Chicken Restaurant
           </p>
           <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
             Experience a Crispy, Flavorful Sensation in Every Bite.

@@ -82,16 +82,25 @@ export default function MenuGalleryPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-teal-50 via-white to-blue-50">
-      <NavigationHeader />
+      {/* Hero Section with Background Image */}
+      <div className="relative overflow-hidden bg-gradient-to-r from-teal-600 to-blue-600">
+        <div className="absolute inset-0">
+          <Image
+            src="/image_016.png"
+            alt="Sharks Fish & Chicken Menu"
+            fill
+            className="object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40"></div>
+        </div>
 
-      {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-teal-600 to-blue-600 text-white">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative container mx-auto px-4 py-16 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight">
+        <NavigationHeader />
+
+        <div className="relative container mx-auto px-4 py-20 text-center text-white">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-white drop-shadow-lg">
             Our Complete Menu
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-teal-100 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
             Explore our delicious selection of fresh seafood, crispy fried chicken, and family favorites
           </p>
           <div className="flex flex-wrap justify-center gap-4">
