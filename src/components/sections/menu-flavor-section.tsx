@@ -30,7 +30,7 @@ const MenuFlavorSection = () => {
               enjoy a full meal with our mouthwatering options!
             </p>
             <Button asChild size="lg" className="bg-teal-600 hover:bg-teal-700">
-              <Link href="/menu">Our Menu</Link>
+              <Link href="/menu-gallery">Our Menu</Link>
             </Button>
           </div>
         </div>

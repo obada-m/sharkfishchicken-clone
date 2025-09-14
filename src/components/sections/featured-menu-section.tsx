@@ -57,7 +57,7 @@ export default function FeaturedMenuSection() {
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-3xl font-bold text-gray-900">Featured</h2>
           <Button asChild variant="outline" className="hidden md:flex">
-            <Link href="/menu">View menu →</Link>
+            <Link href="/menu-gallery">View menu →</Link>
           </Button>
         </div>
 
@@ -103,7 +103,7 @@ export default function FeaturedMenuSection() {
 
         <div className="text-center mt-12">
           <Button asChild size="lg" className="bg-teal-600 hover:bg-teal-700">
-            <Link href="/menu">Browse Full Menu</Link>
+            <Link href="/menu-gallery">Browse Full Menu</Link>
           </Button>
         </div>
       </div>

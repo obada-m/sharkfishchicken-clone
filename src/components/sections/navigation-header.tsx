@@ -50,7 +50,7 @@ export default function NavigationHeader() {
             Home
           </Link>
           <Link
-            href="/menu"
+            href="/menu-gallery"
             className="text-base font-medium text-gray-700 transition-colors hover:text-gray-900"
           >
             Menu
@@ -137,7 +137,7 @@ export default function NavigationHeader() {
                     🏠 Home
                   </Link>
                   <Link
-                    href="/menu"
+                    href="/menu-gallery"
                     className="block px-4 py-3 text-lg font-medium text-gray-900 rounded-lg hover:bg-gray-50 transition-colors"
                   >
                     📋 Menu

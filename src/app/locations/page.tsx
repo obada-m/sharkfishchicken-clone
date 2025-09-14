@@ -160,7 +160,7 @@ export default function LocationsPage() {
                 size="lg"
                 className="bg-teal-600 hover:bg-teal-700"
               >
-                <Link href="/menu">Browse Our Menu</Link>
+                <Link href="/menu-gallery">Browse Our Menu</Link>
               </Button>
             </div>
           </div>

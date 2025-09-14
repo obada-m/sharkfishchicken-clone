@@ -253,7 +253,7 @@ export default function StoryPage() {
               variant="outline"
               className="border-white text-white hover:bg-white hover:text-teal-700 hover:border-teal-700"
             >
-              <Link href="/menu">Browse Our Menu</Link>
+              <Link href="/menu-gallery">Browse Our Menu</Link>
             </Button>
           </div>
         </div>

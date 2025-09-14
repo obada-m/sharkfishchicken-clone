@@ -45,7 +45,7 @@ export function CartDrawer() {
               <p className="text-xl font-medium text-gray-900 mb-3">Your cart is empty</p>
               <p className="text-gray-600 mb-8 text-base">Add some delicious items from our menu!</p>
               <Button asChild className="bg-teal-600 hover:bg-teal-700 h-12 px-8 text-base font-semibold">
-                <Link href="/menu" onClick={() => dispatch({ type: 'CLOSE_CART' })}>
+                <Link href="/menu-gallery" onClick={() => dispatch({ type: 'CLOSE_CART' })}>
                   🍗 Browse Menu
                 </Link>
               </Button>
@@ -140,7 +140,7 @@ export function CartDrawer() {
                     size="lg"
                     asChild
                   >
-                    <Link href="/menu" onClick={() => dispatch({ type: 'CLOSE_CART' })}>
+                    <Link href="/menu-gallery" onClick={() => dispatch({ type: 'CLOSE_CART' })}>
                       🛍️ Continue Shopping
                     </Link>
                   </Button>

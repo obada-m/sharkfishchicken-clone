@@ -73,7 +73,7 @@ export default function OrderPage() {
             <h1 className="text-3xl font-bold text-gray-900 mb-4">Your cart is empty</h1>
             <p className="text-gray-600 mb-8">Add some delicious items from our menu to place an order.</p>
             <Button asChild size="lg" className="bg-teal-600 hover:bg-teal-700">
-              <Link href="/menu">Browse Menu</Link>
+              <Link href="/menu-gallery">Browse Menu</Link>
             </Button>
           </div>
         </main>
@@ -92,7 +92,7 @@ export default function OrderPage() {
           {/* Header */}
           <div className="flex items-center gap-4 mb-8">
             <Button variant="outline" size="sm" asChild>
-              <Link href="/menu">
+              <Link href="/menu-gallery">
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back to Menu
               </Link>
