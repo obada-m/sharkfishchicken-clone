@@ -1,181 +1,122 @@
 "use client";
 
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Plus, Star } from 'lucide-react';
+import { Eye, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from '@/components/ui/dialog';
-import { getPopularItems, MenuItem, SEASONINGS, MENU_DATA } from '@/lib/menu-data';
-import { useCart } from '@/lib/cart-context';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
-import { Textarea } from '@/components/ui/textarea';
+
+const menuSections = [
+  {
+    title: "Sides & Beverages",
+    description: "Perfect sides and refreshing drinks",
+    src: "/menu__1.jpeg",
+    alt: "Side Orders & Drinks Menu"
+  },
+  {
+    title: "Fish & Family Meals",
+    description: "Fresh fish and family portions",
+    src: "/menu__2.jpeg",
+    alt: "Fish Dinners & Family Meals Menu"
+  },
+  {
+    title: "Chicken Specials",
+    description: "Crispy fried chicken favorites",
+    src: "/menu__3.jpeg",
+    alt: "Chicken Menu"
+  },
+  {
+    title: "Seafood Platters",
+    description: "Premium shrimp and seafood",
+    src: "/menu__4.jpeg",
+    alt: "Seafood Platters Menu"
+  }
+];
 
 export default function FeaturedMenuSection() {
-  const { dispatch } = useCart();
-  const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
-  const [selectedSeasoning, setSelectedSeasoning] = useState<string>('Plain');
-  const [specialInstructions, setSpecialInstructions] = useState<string>('');
-  
-  // Get a mix of popular items and other featured items
-  const popularItems = [
-    ...getPopularItems(), // First get the popular items
-    ...MENU_DATA[0].items, // Then add house favorites
-    ...MENU_DATA[1].items.slice(0, 3), // Add some wings
-    ...MENU_DATA[2].items.slice(0, 2), // Add some fish
-  ].slice(0, 10); // Limit to 10 items total
-
-  const handleAddToCart = (item: MenuItem) => {
-    dispatch({
-      type: 'ADD_ITEM',
-      payload: {
-        item,
-        seasoning: selectedSeasoning,
-        specialInstructions: specialInstructions.trim() || undefined
-      }
-    });
-    dispatch({ type: 'OPEN_CART' });
-    setSelectedItem(null);
-    setSpecialInstructions('');
-  };
 
   return (
-    <section className="bg-white py-16">
+    <section className="bg-gradient-to-br from-gray-50 to-white py-16">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-900">Featured</h2>
-          <Button asChild variant="outline" className="hidden md:flex">
-            <Link href="/menu-gallery">View menu →</Link>
-          </Button>
+        <div className="text-center mb-12">
+          <Badge className="bg-teal-100 text-teal-800 mb-4">Our Menu</Badge>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Sneak Peek at Our Delicious Menu
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Get a preview of our mouth-watering selection. From crispy fried chicken to fresh seafood,
+            we've got something for everyone in the family.
+          </p>
         </div>
 
-        <div className="flex overflow-x-auto gap-4 pb-4 scrollbar-hide">
-          {popularItems.map((item, index) => {
-            const images = [
-              "/Image1.jpg",
-              "/Image2.jpg", 
-              "/Image3.jpg",
-              "/image_003.png",
-              "/image_014.png",
-              "/image_015.png",
-              "/image_016.png"
-            ];
-            
-            return (
-              <div
-                key={item.id}
-                className="flex-shrink-0 w-64 bg-gray-200 rounded-2xl overflow-hidden relative"
-              >
-                <div className="relative h-44 overflow-hidden">
-                  <Image
-                    src={images[index] || "/image_003.png"}
-                    alt={item.name}
-                    fill
-                    className="object-cover"
-                  />
-                  <button
-                    onClick={() => setSelectedItem(item)}
-                    className="absolute bottom-3 right-3 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow"
-                  >
-                    <Plus className="h-5 w-5 text-gray-800" />
-                  </button>
-                </div>
-                
-                <div className="p-4 bg-white">
-                  <h3 className="font-medium text-gray-900 text-sm leading-tight">{item.name}</h3>
+        {/* Menu Preview Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-12">
+          {menuSections.map((section, index) => (
+            <Link
+              key={index}
+              href="/menu-gallery"
+              className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              {/* Menu Image */}
+              <div className="relative h-56">
+                <Image
+                  src={section.src}
+                  alt={section.alt}
+                  fill
+                  className="object-contain p-2 transition-transform duration-500 group-hover:scale-110"
+                />
+
+                {/* Overlay on Hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <div className="flex items-center justify-center w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full mb-2 mx-auto">
+                      <Eye className="h-5 w-5" />
+                    </div>
+                  </div>
                 </div>
               </div>
-            );
-          })}
+
+              {/* Section Info */}
+              <div className="p-4 text-center">
+                <h3 className="font-bold text-gray-900 mb-1 group-hover:text-teal-600 transition-colors">
+                  {section.title}
+                </h3>
+                <p className="text-sm text-gray-600">
+                  {section.description}
+                </p>
+              </div>
+            </Link>
+          ))}
         </div>
 
-        <div className="text-center mt-12">
-          <Button asChild size="lg" className="bg-teal-600 hover:bg-teal-700">
-            <Link href="/menu-gallery">Browse Full Menu</Link>
-          </Button>
+        {/* Call to Action */}
+        <div className="text-center">
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto border border-gray-200/50">
+            <h3 className="text-xl font-bold text-gray-900 mb-3">
+              Ready to See Our Complete Menu?
+            </h3>
+            <p className="text-gray-600 mb-6">
+              Explore our full selection of fried chicken, seafood, sides, and family meals.
+              Everything is made fresh daily with our signature seasonings!
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild size="lg" className="bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-700 hover:to-blue-700">
+                <Link href="/menu-gallery">
+                  <Eye className="h-5 w-5 mr-2" />
+                  View Complete Menu
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="border-teal-200 text-teal-700 hover:bg-teal-50">
+                <Link href="/order">
+                  <ArrowRight className="h-5 w-5 mr-2" />
+                  Order Online
+                </Link>
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* Add to Cart Dialog */}
-      {selectedItem && (
-        <Dialog open={!!selectedItem} onOpenChange={() => setSelectedItem(null)}>
-          <DialogContent className="sm:max-w-md">
-            <DialogHeader>
-              <DialogTitle>Add {selectedItem.name} to Cart</DialogTitle>
-            </DialogHeader>
-            
-            <div className="space-y-4">
-              <div>
-                <p className="text-gray-600 text-sm">{selectedItem.description}</p>
-                <p className="font-bold text-teal-600 text-lg mt-2">
-                  ${selectedItem.price.toFixed(2)}
-                </p>
-                {selectedItem.portions && (
-                  <p className="text-sm text-gray-500">{selectedItem.portions}</p>
-                )}
-              </div>
-
-              {selectedItem.seasonings && (
-                <div>
-                  <label className="block text-sm font-medium mb-2">Choose Seasoning:</label>
-                  <Select value={selectedSeasoning} onValueChange={setSelectedSeasoning}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select seasoning" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {SEASONINGS.map((seasoning) => (
-                        <SelectItem key={seasoning} value={seasoning}>
-                          {seasoning}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-              )}
-
-              <div>
-                <label className="block text-sm font-medium mb-2">
-                  Special Instructions (Optional):
-                </label>
-                <Textarea
-                  placeholder="Any special requests..."
-                  value={specialInstructions}
-                  onChange={(e) => setSpecialInstructions(e.target.value)}
-                  rows={3}
-                />
-              </div>
-
-              <div className="flex gap-3 pt-4">
-                <Button 
-                  variant="outline" 
-                  onClick={() => setSelectedItem(null)} 
-                  className="flex-1"
-                >
-                  Cancel
-                </Button>
-                <Button 
-                  onClick={() => handleAddToCart(selectedItem)} 
-                  className="flex-1 bg-teal-600 hover:bg-teal-700"
-                >
-                  Add to Cart
-                </Button>
-              </div>
-            </div>
-          </DialogContent>
-        </Dialog>
-      )}
     </section>
   );
 }
