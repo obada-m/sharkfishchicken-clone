@@ -250,18 +250,9 @@ export default function MenuGalleryPage() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Order?</h2>
           <p className="text-xl mb-8 text-teal-100">
-            Visit us in-store, call ahead, or order online for pickup and delivery!
+            Visit us in-store or call ahead for pickup and delivery!
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button
-              asChild
-              size="lg"
-              className="bg-orange-500 hover:bg-orange-600 border-0 text-lg px-8"
-            >
-              <a href="/order">
-                Order Online
-              </a>
-            </Button>
             <Button
               asChild
               variant="outline"

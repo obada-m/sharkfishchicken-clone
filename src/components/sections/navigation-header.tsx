@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, ShoppingCart } from "lucide-react";
+import { Menu } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -10,11 +10,8 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Badge } from "@/components/ui/badge";
-import { useCart } from "@/lib/cart-context";
 
 export default function NavigationHeader() {
-  const { state, dispatch } = useCart();
 
   return (
     <header className="sticky top-0 z-50 flex h-16 sm:h-20 w-full items-center border-b-[1px] border-b-gray-200 bg-white">
@@ -67,55 +64,14 @@ export default function NavigationHeader() {
           >
             Our Story
           </Link>
-          
-          {/* Cart Button */}
-          <Button
-            variant="outline"
-            size="sm"
-            className="relative"
-            onClick={() => dispatch({ type: 'TOGGLE_CART' })}
-          >
-            <ShoppingCart className="h-4 w-4 mr-2" />
-            <span className="hidden sm:inline">
-              {state.itemCount > 0 ? `Cart (${state.itemCount}) $${state.total.toFixed(2)}` : 'Cart $0.00'}
-            </span>
-            <span className="sm:hidden">
-              ${state.total.toFixed(2)}
-            </span>
-            {state.itemCount > 0 && (
-              <Badge className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 bg-red-500 hover:bg-red-600">
-                {state.itemCount}
-              </Badge>
-            )}
-          </Button>
-          
-          <Button asChild className="bg-teal-600 hover:bg-teal-700 font-medium text-white">
-            <Link href="/order">Order Online</Link>
-          </Button>
         </nav>
 
         {/* Mobile Navigation */}
-        <div className="md:hidden flex items-center gap-2">
-          {/* Mobile Cart Button */}
-          <Button
-            variant="outline"
-            size="sm"
-            className="relative h-10 px-3 rounded-lg border-gray-200"
-            onClick={() => dispatch({ type: 'TOGGLE_CART' })}
-          >
-            <ShoppingCart className="h-4 w-4 mr-1" />
-            <span className="text-sm font-medium">${state.total.toFixed(2)}</span>
-            {state.itemCount > 0 && (
-              <Badge className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 bg-red-500 text-xs font-bold">
-                {state.itemCount}
-              </Badge>
-            )}
-          </Button>
-          
+        <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 size="sm"
                 className="h-10 w-10 p-0 rounded-lg border-gray-200"
               >
@@ -128,7 +84,7 @@ export default function NavigationHeader() {
                 <div className="p-6 border-b">
                   <h2 className="text-xl font-bold text-gray-900">Menu</h2>
                 </div>
-                
+
                 <nav className="flex-1 p-6 space-y-1">
                   <Link
                     href="/"
@@ -155,33 +111,6 @@ export default function NavigationHeader() {
                     📖 Our Story
                   </Link>
                 </nav>
-
-                <div className="border-t p-6 space-y-4">
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-semibold text-gray-900">Your Cart</span>
-                      <span className="font-bold text-teal-600 text-lg">${state.total.toFixed(2)}</span>
-                    </div>
-                    <div className="text-sm text-gray-600">
-                      {state.itemCount} {state.itemCount === 1 ? 'item' : 'items'}
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-3">
-                    <Button asChild size="lg" className="w-full bg-teal-600 hover:bg-teal-700 h-12 text-base font-semibold">
-                      <Link href="/order">🛒 Order Online</Link>
-                    </Button>
-                    
-                    <Button 
-                      variant="outline" 
-                      size="lg" 
-                      className="w-full h-12 text-base font-medium"
-                      onClick={() => dispatch({ type: 'TOGGLE_CART' })}
-                    >
-                      👁️ View Cart
-                    </Button>
-                  </div>
-                </div>
               </div>
             </SheetContent>
           </Sheet>

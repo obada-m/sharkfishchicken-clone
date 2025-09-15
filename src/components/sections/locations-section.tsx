@@ -1,410 +1,190 @@
 'use client';
 
 import * as React from 'react';
-import { useState } from 'react';
-
-type LocationHours = {
-  day: string;
-  store: string;
-  pickupDelivery: string;
-};
+import { Phone, MapPin, Clock, ExternalLink } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import Image from 'next/image';
 
 type Location = {
+  id: string;
   name: string;
-  slug: string;
-  fullName: string;
-  locationUrl: string;
-  getDirectionsUrl: string;
-  addressLines: string[];
+  address: string;
   phone: string;
-  phoneHref: string;
-  email: string;
-  emailHref: string;
-  hours: LocationHours[];
-  orderOnlineUrl: string;
+  hours: {
+    [key: string]: string;
+  };
+  googleMapsUrl?: string;
 };
 
 const locationsData: Location[] = [
   {
-    name: 'Merrilville',
-    slug: 'merrilville',
-    fullName: 'Sharks Fish & Chicken Merrilville, IN',
-    locationUrl: 'https://sharkfishchicken.com/sharksfishchicken-merrilville',
-    getDirectionsUrl:
-      'https://www.google.com/maps/dir/?api=1&destination=Merrilville%2C%20IN',
-    addressLines: ['Merrilville, IN'],
-    phone: '+12194720608',
-    phoneHref: 'tel:+12194720608',
-    email: 'merrilville@sharks.com',
-    emailHref: 'mailto:merrilville@sharks.com',
-    hours: [
-      {
-        day: 'Sunday',
-        store: '10:00 AM - 12:00 AM CDT',
-        pickupDelivery: '10:00 AM - 12:00 AM CDT',
-      },
-      {
-        day: 'Monday',
-        store: '10:00 AM - 12:00 AM CDT',
-        pickupDelivery: '10:00 AM - 12:00 AM CDT',
-      },
-      {
-        day: 'Tuesday',
-        store: '10:00 AM - 12:00 AM CDT',
-        pickupDelivery: '10:00 AM - 12:00 AM CDT',
-      },
-      {
-        day: 'Wednesday',
-        store: '10:00 AM - 12:00 AM CDT',
-        pickupDelivery: '10:00 AM - 12:00 AM CDT',
-      },
-      {
-        day: 'Thursday',
-        store: '10:00 AM - 12:00 AM CDT',
-        pickupDelivery: '10:00 AM - 12:00 AM CDT',
-      },
-      {
-        day: 'Friday',
-        store: '10:00 AM - 2:00 AM CDT',
-        pickupDelivery: '10:00 AM - 2:00 AM CDT',
-      },
-      {
-        day: 'Saturday',
-        store: '10:00 AM - 2:00 AM CDT',
-        pickupDelivery: '10:00 AM - 2:00 AM CDT',
-      },
-    ],
-    orderOnlineUrl:
-      'https://sharkfishchicken.com/menu/sharksfishchicken-merrilville',
+    id: 'lansing',
+    name: 'Sharks Lansing',
+    address: '17669 Torrence Ave, Lansing, IL 60438',
+    phone: '(708) 889-6581',
+    hours: {
+      'Sunday-Thursday': '10:00 AM - 12:00 AM',
+      'Friday-Saturday': '10:00 AM - 2:00 AM',
+    },
   },
   {
-    name: 'Lansing',
-    slug: 'lansing',
-    fullName: 'Sharks Fish & Chicken Lansing, IL',
-    locationUrl: 'https://sharkfishchicken.com/sharksfishandchicken-lansing',
-    getDirectionsUrl:
-      'https://www.google.com/maps/dir/?api=1&destination=Torrence%20Avenue%2C%20Lansing%2C%20IN',
-    addressLines: ['Torrence Avenue', 'Lansing, IL'],
-    phone: '(708) 555-0002',
-    phoneHref: 'tel:+17085550002',
-    email: 'lansing@sharks.com',
-    emailHref: 'mailto:lansing@sharks.com',
-    hours: [
-      {
-        day: 'Sunday',
-        store: '10:00 AM - 12:00 AM CDT',
-        pickupDelivery: '10:00 AM - 12:00 AM CDT',
-      },
-      {
-        day: 'Monday',
-        store: '10:00 AM - 12:00 AM CDT',
-        pickupDelivery: '10:00 AM - 12:00 AM CDT',
-      },
-      {
-        day: 'Tuesday',
-        store: '10:00 AM - 12:00 AM CDT',
-        pickupDelivery: '10:00 AM - 12:00 AM CDT',
-      },
-      {
-        day: 'Wednesday',
-        store: '10:00 AM - 12:00 AM CDT',
-        pickupDelivery: '10:00 AM - 12:00 AM CDT',
-      },
-      {
-        day: 'Thursday',
-        store: '10:00 AM - 12:00 AM CDT',
-        pickupDelivery: '10:00 AM - 12:00 AM CDT',
-      },
-      {
-        day: 'Friday',
-        store: '10:00 AM - 2:00 AM CDT',
-        pickupDelivery: '10:00 AM - 2:00 AM CDT',
-      },
-      {
-        day: 'Saturday',
-        store: '10:00 AM - 2:00 AM CDT',
-        pickupDelivery: '10:00 AM - 2:00 AM CDT',
-      },
-    ],
-    orderOnlineUrl:
-      'https://sharkfishchicken.com/menu/sharksfishandchicken-lansing',
+    id: 'merrilville',
+    name: 'Sharks Merrilville',
+    address: '510 W Lincoln Hwy, Merrillville, IN 46410',
+    phone: '(219) 472-0608',
+    hours: {
+      'Sunday-Thursday': '10:00 AM - 12:00 AM',
+      'Friday-Saturday': '10:00 AM - 2:00 AM',
+    },
   },
   {
-    name: 'Sauk Village',
-    slug: 'sauk-village',
-    fullName: 'Sharks Fish & Chicken Sauk Village, IL',
-    locationUrl: 'https://sharkfishchicken.com/sharksfishchicken-sauk-village',
-    getDirectionsUrl:
-      'https://www.google.com/maps/dir/?api=1&destination=Sauk%20Trail%2C%20Sauk%20Village%2C%20IN',
-    addressLines: ['Sauk Trail', 'Sauk Village, IL'],
-    phone: '(708) 555-0003',
-    phoneHref: 'tel:+17085550003',
-    email: 'saukvillage@sharks.com',
-    emailHref: 'mailto:saukvillage@sharks.com',
-    hours: [
-      {
-        day: 'Sunday',
-        store: '10:00 AM - 12:00 AM CDT',
-        pickupDelivery: '10:00 AM - 12:00 AM CDT',
-      },
-      {
-        day: 'Monday',
-        store: '10:00 AM - 12:00 AM CDT',
-        pickupDelivery: '10:00 AM - 12:00 AM CDT',
-      },
-      {
-        day: 'Tuesday',
-        store: '10:00 AM - 12:00 AM CDT',
-        pickupDelivery: '10:00 AM - 12:00 AM CDT',
-      },
-      {
-        day: 'Wednesday',
-        store: '10:00 AM - 12:00 AM CDT',
-        pickupDelivery: '10:00 AM - 12:00 AM CDT',
-      },
-      {
-        day: 'Thursday',
-        store: '10:00 AM - 12:00 AM CDT',
-        pickupDelivery: '10:00 AM - 12:00 AM CDT',
-      },
-      {
-        day: 'Friday',
-        store: '10:00 AM - 2:00 AM CDT',
-        pickupDelivery: '10:00 AM - 2:00 AM CDT',
-      },
-      {
-        day: 'Saturday',
-        store: '10:00 AM - 2:00 AM CDT',
-        pickupDelivery: '10:00 AM - 2:00 AM CDT',
-      },
-    ],
-    orderOnlineUrl:
-      'https://sharkfishchicken.com/menu/sharksfishchicken-sauk-village',
+    id: 'sauk-village',
+    name: 'Sharks Sauk Village',
+    address: '16 E Sauk Trail, Sauk Village, IL 60411',
+    phone: '(708) 757-5400',
+    hours: {
+      'Sunday-Thursday': '10:00 AM - 12:00 AM',
+      'Friday-Saturday': '10:00 AM - 2:00 AM',
+    },
   },
 ];
 
 export default function LocationsSection() {
-  const [activeTab, setActiveTab] = useState(locationsData[0].slug);
-
-  const activeLocation = locationsData.find((loc) => loc.slug === activeTab);
-
   return (
-    <section className="bg-background text-foreground py-16">
-      <div className="container mx-auto px-6">
-        <h2 className="text-2xl font-semibold text-center mb-8">
-          Our locations
+    <section className="bg-gradient-to-br from-teal-50 via-white to-blue-50 py-16">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">
+          Our Locations
         </h2>
-        <div className="flex justify-center border-b border-border mb-8">
-          {locationsData.map((location) => (
-            <button
-              key={location.slug}
-              onClick={() => setActiveTab(location.slug)}
-              className={`py-3 px-4 text-base font-semibold focus:outline-none transition-colors duration-200 ${
-                activeTab === location.slug
-                  ? 'border-b-2 border-primary text-primary'
-                  : 'border-b-2 border-transparent text-muted-foreground hover:text-primary'
-              }`}
-            >
-              {location.name}
-            </button>
-          ))}
-        </div>
+        <p className="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+          Find a Sharks Fish & Chicken location near you. Fresh, delicious food served daily across Illinois and Indiana.
+        </p>
 
-        {activeLocation && (
-          <div className="border border-border rounded-lg p-6 md:p-8">
-            <div className="flex flex-col md:flex-row justify-between md:items-center mb-6">
-              <a
-                href={activeLocation.locationUrl}
-                className="text-xl font-semibold text-foreground hover:text-primary mb-2 md:mb-0"
-              >
-                {activeLocation.fullName.replace('  ', ' ')}
-              </a>
-              <a
-                href={activeLocation.getDirectionsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-semibold text-primary hover:underline whitespace-nowrap"
-              >
-                Get Directions
-              </a>
-            </div>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
+          {locationsData.map((location, index) => {
+            const storeImages = [
+              '/store_image2.jpeg',
+              '/store_image1.jpeg',
+              '/store_image3.jpeg',
+            ];
 
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="space-y-6">
-                <div>
-                  <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
-                    <svg
-                      className="w-5 h-5 text-primary"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                      />
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
-                    </svg>
-                    Address
-                  </h4>
-                  <a
-                    href={activeLocation.getDirectionsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-start gap-2 p-3 bg-muted/50 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors group"
-                  >
-                    <div>
-                      {activeLocation.addressLines.map((line, index) => (
-                        <span
-                          key={index}
-                          className="block text-muted-foreground group-hover:text-primary"
+            return (
+              <Card
+                key={location.id}
+                className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white/80 backdrop-blur-sm"
+              >
+                <div className="relative h-48">
+                  <Image
+                    src={storeImages[index] || '/store_image1.jpeg'}
+                    alt={`${location.name} Restaurant`}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h2 className="text-2xl font-bold text-white mb-1 drop-shadow-lg">
+                      {location.name}
+                    </h2>
+                    <p className="text-white/90 text-sm drop-shadow-md">
+                      {location.address}
+                    </p>
+                  </div>
+                </div>
+
+                <CardContent className="p-6">
+                  <div className="space-y-5">
+                    <div className="grid grid-cols-2 gap-4 text-center">
+                      <div className="bg-teal-50 rounded-lg p-3">
+                        <div className="text-teal-600 font-bold text-lg">
+                          10+
+                        </div>
+                        <div className="text-xs text-gray-600">
+                          Years Serving
+                        </div>
+                      </div>
+                      <div className="bg-blue-50 rounded-lg p-3">
+                        <div className="text-blue-600 font-bold text-lg">
+                          5mi
+                        </div>
+                        <div className="text-xs text-gray-600">
+                          Delivery Radius
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-gray-50 rounded-lg p-4">
+                      <div className="flex items-center gap-3 mb-3">
+                        <Phone className="h-5 w-5 text-teal-600" />
+                        <a
+                          href={`tel:${location.phone}`}
+                          className="text-teal-600 hover:text-teal-700 font-semibold text-lg"
                         >
-                          {line}
-                        </span>
-                      ))}
-                      <span className="text-xs text-primary mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                        Click for directions →
-                      </span>
-                    </div>
-                  </a>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
-                    <svg
-                      className="w-5 h-5 text-primary"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                      />
-                    </svg>
-                    Contact
-                  </h4>
-                  <div className="space-y-2">
-                    <a
-                      href={activeLocation.phoneHref}
-                      className="flex items-center gap-2 p-3 bg-muted/50 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors group"
-                    >
-                      <svg
-                        className="w-4 h-4 text-muted-foreground group-hover:text-primary"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                        />
-                      </svg>
-                      <span className="text-muted-foreground group-hover:text-primary">
-                        {activeLocation.phone}
-                      </span>
-                    </a>
-                    <a
-                      href={activeLocation.emailHref}
-                      className="flex items-center gap-2 p-3 bg-muted/50 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors group"
-                    >
-                      <svg
-                        className="w-4 h-4 text-muted-foreground group-hover:text-primary"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                        />
-                      </svg>
-                      <span className="text-muted-foreground group-hover:text-primary">
-                        {activeLocation.email}
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
+                          {location.phone}
+                        </a>
+                      </div>
 
-              <div>
-                <h4 className="font-semibold text-foreground mb-4 flex items-center gap-2">
-                  <svg
-                    className="w-5 h-5 text-primary"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  Hours of Operation
-                </h4>
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between py-2 px-4 bg-muted/50 rounded-lg">
-                    <div className="font-medium text-foreground">
-                      Sunday - Thursday
+                      <div className="flex items-start gap-3">
+                        <Clock className="h-5 w-5 text-gray-500 mt-1 flex-shrink-0" />
+                        <div>
+                          <p className="font-medium text-gray-900 mb-2">
+                            Store Hours
+                          </p>
+                          <div className="text-sm text-gray-600 space-y-1">
+                            {Object.entries(location.hours).map(
+                              ([days, hours]) => (
+                                <div
+                                  key={days}
+                                  className="flex justify-between items-center"
+                                >
+                                  <span className="font-medium">{days}</span>
+                                  <span className="text-teal-600">{hours}</span>
+                                </div>
+                              )
+                            )}
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div className="text-muted-foreground">
-                      10:00 AM - 12:00 AM
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between py-2 px-4 bg-muted/50 rounded-lg">
-                    <div className="font-medium text-foreground">
-                      Friday - Saturday
-                    </div>
-                    <div className="text-muted-foreground">
-                      10:00 AM - 2:00 AM
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-4 p-3 bg-primary/10 rounded-lg border border-primary/20">
-                  <div className="flex items-center gap-2 text-sm text-primary font-medium">
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    Same hours for dine-in, pickup, and delivery
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <div className="mt-8">
-              <a
-                href={activeLocation.orderOnlineUrl}
-                className="block w-full bg-primary text-primary-foreground text-center py-3 rounded-md font-semibold hover:bg-primary/90 transition-colors"
-              >
-                Order online
-              </a>
-            </div>
-          </div>
-        )}
+                    <div className="grid grid-cols-2 gap-3">
+                      <Button
+                        variant="outline"
+                        asChild
+                        className="border-teal-200 text-teal-700 hover:bg-teal-50"
+                      >
+                        <a
+                          href={
+                            location.googleMapsUrl ||
+                            `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+                              location.address
+                            )}`
+                          }
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <MapPin className="h-4 w-4 mr-2" />
+                          Directions
+                        </a>
+                      </Button>
+
+                      <Button
+                        variant="outline"
+                        asChild
+                        className="border-blue-200 text-blue-700 hover:bg-blue-50"
+                      >
+                        <a href={`tel:${location.phone}`}>
+                          <Phone className="h-4 w-4 mr-2" />
+                          Call Now
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

@@ -53,7 +53,7 @@ export default function WelcomeHeroSection() {
             size="lg"
             className="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-8 py-3 text-lg"
           >
-            <Link href="/order">Order online</Link>
+            <Link href="/menu-gallery">View Menu</Link>
           </Button>
         </div>
       </div>

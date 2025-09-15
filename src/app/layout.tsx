@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import ErrorReporter from '@/components/ErrorReporter';
-import { CartProvider } from '@/lib/cart-context';
-import { CartDrawer } from '@/components/ui/cart-drawer';
 
 export const metadata: Metadata = {
   title: 'Sharks Fish & Chicken - Best Fried Chicken Restaurant',
@@ -48,10 +46,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         <ErrorReporter />
-        <CartProvider>
-          {children}
-          <CartDrawer />
-        </CartProvider>
+        {children}
       </body>
     </html>
   );

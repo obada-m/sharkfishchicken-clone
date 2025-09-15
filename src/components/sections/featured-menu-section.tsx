@@ -107,12 +107,6 @@ export default function FeaturedMenuSection() {
                   View Complete Menu
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-teal-200 text-teal-700 hover:bg-teal-50">
-                <Link href="/order">
-                  <ArrowRight className="h-5 w-5 mr-2" />
-                  Order Online
-                </Link>
-              </Button>
             </div>
           </div>
         </div>

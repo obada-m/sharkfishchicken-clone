@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MapPin, Clock, ExternalLink } from 'lucide-react';
+import { Phone, MapPin, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { LOCATIONS } from '@/lib/menu-data';
@@ -129,50 +129,37 @@ export default function LocationsPage() {
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="space-y-3">
+                    <div className="grid grid-cols-2 gap-3">
                       <Button
+                        variant="outline"
                         asChild
-                        className="w-full bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-700 hover:to-blue-700 text-white shadow-lg"
-                        size="lg"
+                        className="border-teal-200 text-teal-700 hover:bg-teal-50"
                       >
-                        <a href={`#`} rel="noopener noreferrer">
-                          <ExternalLink className="h-5 w-5 mr-2" />
-                          Order Online
+                        <a
+                          href={
+                            location.googleMapsUrl ||
+                            `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+                              location.address
+                            )}`
+                          }
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <MapPin className="h-4 w-4 mr-2" />
+                          Directions
                         </a>
                       </Button>
 
-                      <div className="grid grid-cols-2 gap-3">
-                        <Button
-                          variant="outline"
-                          asChild
-                          className="border-teal-200 text-teal-700 hover:bg-teal-50"
-                        >
-                          <a
-                            href={
-                              location.googleMapsUrl ||
-                              `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-                                location.address
-                              )}`
-                            }
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <MapPin className="h-4 w-4 mr-2" />
-                            Directions
-                          </a>
-                        </Button>
-
-                        <Button
-                          variant="outline"
-                          asChild
-                          className="border-blue-200 text-blue-700 hover:bg-blue-50"
-                        >
-                          <a href={`tel:${location.phone}`}>
-                            <Phone className="h-4 w-4 mr-2" />
-                            Call Now
-                          </a>
-                        </Button>
-                      </div>
+                      <Button
+                        variant="outline"
+                        asChild
+                        className="border-blue-200 text-blue-700 hover:bg-blue-50"
+                      >
+                        <a href={`tel:${location.phone}`}>
+                          <Phone className="h-4 w-4 mr-2" />
+                          Call Now
+                        </a>
+                      </Button>
                     </div>
                   </div>
                 </CardContent>
@@ -231,22 +218,13 @@ export default function LocationsPage() {
                 </div>
               </div>
 
-              <div className="mt-10 flex flex-wrap justify-center gap-4">
+              <div className="mt-10 flex justify-center">
                 <Button
                   asChild
                   size="lg"
                   className="bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-700 hover:to-blue-700 text-lg px-8"
                 >
                   <Link href="/menu-gallery">Browse Our Menu</Link>
-                </Button>
-
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="text-lg px-8 border-2 border-teal-200 text-teal-700 hover:bg-teal-50"
-                >
-                  <Link href="/order">Order Online</Link>
                 </Button>
               </div>
             </div>
