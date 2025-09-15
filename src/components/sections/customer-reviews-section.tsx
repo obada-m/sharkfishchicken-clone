@@ -1,15 +1,15 @@
 const reviewsData = [
   {
-    name: 'Sarah M.',
-    review: "Best fried chicken in town! The crispy coating is perfect and the meat is so juicy. My family orders from here every Friday night. The lemon pepper seasoning is absolutely amazing!",
+    name: 'Krystal Murray',
+    review: "Food is ALWAYS hot and fresh! I like going here because it reminds me of food back home in Chicago. I've only had the catfish fillets and wings and they both be FYE 🤤🔥 I usually call ahead and pick up in the drive thru never had an issue.",
   },
   {
-    name: 'Marcus D.',
-    review: 'The fish is incredibly fresh and the portions are generous. I love their catfish dinner with seasoned fries. Staff is always friendly and the food comes out hot every time. Highly recommend!',
+    name: 'Kimberly Green',
+    review: 'Our first time eating there. The food and service was great. We would eat there again.',
   },
   {
-    name: 'Jennifer L.',
-    review: 'Amazing wings and great customer service! The cajun seasoning has the perfect kick. Been coming here for years and they never disappoint. The combo meals are a great value too.',
+    name: 'Viveca Spivey',
+    review: 'Great customer service, Chick wings were so good. It took me 2 days to eat them. Very fulfilling',
   },
 ];
 

@@ -72,86 +72,74 @@ export default function LocationsSection() {
             return (
               <Card
                 key={location.id}
-                className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white/80 backdrop-blur-sm"
+                className="group overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] bg-white border-0 shadow-lg"
               >
-                <div className="relative h-48">
+                {/* Image Header */}
+                <div className="relative h-56 overflow-hidden">
                   <Image
                     src={storeImages[index] || '/store_image1.jpeg'}
                     alt={`${location.name} Restaurant`}
                     fill
-                    className="object-cover"
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h2 className="text-2xl font-bold text-white mb-1 drop-shadow-lg">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-teal-600/20 to-blue-600/20"></div>
+
+                  {/* Location Info Overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h2 className="text-3xl font-bold text-white mb-2 drop-shadow-2xl">
                       {location.name}
                     </h2>
-                    <p className="text-white/90 text-sm drop-shadow-md">
+                    <p className="text-white/95 text-base drop-shadow-lg flex items-center">
+                      <MapPin className="h-4 w-4 mr-2 text-teal-300" />
                       {location.address}
                     </p>
                   </div>
                 </div>
 
-                <CardContent className="p-6">
-                  <div className="space-y-5">
-                    <div className="grid grid-cols-2 gap-4 text-center">
-                      <div className="bg-teal-50 rounded-lg p-3">
-                        <div className="text-teal-600 font-bold text-lg">
-                          10+
-                        </div>
-                        <div className="text-xs text-gray-600">
-                          Years Serving
-                        </div>
-                      </div>
-                      <div className="bg-blue-50 rounded-lg p-3">
-                        <div className="text-blue-600 font-bold text-lg">
-                          5mi
-                        </div>
-                        <div className="text-xs text-gray-600">
-                          Delivery Radius
-                        </div>
-                      </div>
+                <CardContent className="p-8">
+                  <div className="space-y-6">
+                    {/* Phone Number - Prominent */}
+                    <div className="text-center">
+                      <a
+                        href={`tel:${location.phone}`}
+                        className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-700 hover:to-blue-700 text-white font-bold text-xl px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+                      >
+                        <Phone className="h-6 w-6" />
+                        {location.phone}
+                      </a>
                     </div>
 
-                    <div className="bg-gray-50 rounded-lg p-4">
-                      <div className="flex items-center gap-3 mb-3">
-                        <Phone className="h-5 w-5 text-teal-600" />
-                        <a
-                          href={`tel:${location.phone}`}
-                          className="text-teal-600 hover:text-teal-700 font-semibold text-lg"
-                        >
-                          {location.phone}
-                        </a>
+                    {/* Store Hours */}
+                    <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-5 border border-gray-200">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="p-2 bg-teal-100 rounded-lg">
+                          <Clock className="h-5 w-5 text-teal-600" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg">Store Hours</h3>
                       </div>
 
-                      <div className="flex items-start gap-3">
-                        <Clock className="h-5 w-5 text-gray-500 mt-1 flex-shrink-0" />
-                        <div>
-                          <p className="font-medium text-gray-900 mb-2">
-                            Store Hours
-                          </p>
-                          <div className="text-sm text-gray-600 space-y-1">
-                            {Object.entries(location.hours).map(
-                              ([days, hours]) => (
-                                <div
-                                  key={days}
-                                  className="flex justify-between items-center"
-                                >
-                                  <span className="font-medium">{days}</span>
-                                  <span className="text-teal-600">{hours}</span>
-                                </div>
-                              )
-                            )}
+                      <div className="space-y-2">
+                        {Object.entries(location.hours).map(([days, hours]) => (
+                          <div
+                            key={days}
+                            className="flex justify-between items-center py-2 px-3 bg-white rounded-lg shadow-sm"
+                          >
+                            <span className="font-medium text-gray-700 text-sm whitespace-nowrap">{days}</span>
+                            <span className="font-semibold text-teal-600 bg-teal-50 px-2 py-1 rounded text-sm whitespace-nowrap">
+                              {hours}
+                            </span>
                           </div>
-                        </div>
+                        ))}
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-3">
+                    {/* Action Button */}
+                    <div className="pt-2">
                       <Button
                         variant="outline"
                         asChild
-                        className="border-teal-200 text-teal-700 hover:bg-teal-50"
+                        className="w-full border-2 border-teal-200 text-teal-700 hover:bg-teal-50 hover:border-teal-300 font-semibold py-3 text-lg rounded-xl transition-all duration-300"
                       >
                         <a
                           href={
@@ -163,19 +151,8 @@ export default function LocationsSection() {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <MapPin className="h-4 w-4 mr-2" />
-                          Directions
-                        </a>
-                      </Button>
-
-                      <Button
-                        variant="outline"
-                        asChild
-                        className="border-blue-200 text-blue-700 hover:bg-blue-50"
-                      >
-                        <a href={`tel:${location.phone}`}>
-                          <Phone className="h-4 w-4 mr-2" />
-                          Call Now
+                          <MapPin className="h-5 w-5 mr-2" />
+                          Get Directions
                         </a>
                       </Button>
                     </div>
