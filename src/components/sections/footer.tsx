@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-12">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Logo and Description */}
           <div className="col-span-1 md:col-span-2">
             <Link href="/" className="flex items-center mb-4">
@@ -100,7 +100,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/our-story"
+                  href="/story"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   Our Story
@@ -114,70 +114,7 @@ export default function Footer() {
                   Locations
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/careers"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  We're Hiring
-                </Link>
-              </li>
             </ul>
-          </div>
-
-          {/* Legal & Support */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">Support</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/gift-cards"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Gift Cards
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/terms"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Terms & Policies
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/accessibility"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Accessibility Statement
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/privacy"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Privacy Policy
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="border-t border-gray-800 mt-12 pt-8">
-          <div className="text-center">
-            <p className="text-gray-400 text-sm">
-              © 2024 Sharks Fish & Chicken. All rights reserved.
-            </p>
           </div>
         </div>
       </div>

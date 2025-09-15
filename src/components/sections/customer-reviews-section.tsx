@@ -1,23 +1,15 @@
-import Image from 'next/image';
-
 const reviewsData = [
   {
-    name: 'Tony P.',
-    review: "Really great Sharks and Tony's. They offer more options when you go inside than if you order online. If the order isn't right, they will make you a fresh order.",
-    imageUrl: 'https://static-content.owner.com/brands/funnel/reviews-section-images/rYSPbAUtjkwGvMLIAx0Rf8aAHB1nEcxZ/khXoR6Z3I8hC3gZ3NXFgWWH7.png?v=4761751329&w=64&q=80&auto=format',
-    link: '#',
+    name: 'Sarah M.',
+    review: "Best fried chicken in town! The crispy coating is perfect and the meat is so juicy. My family orders from here every Friday night. The lemon pepper seasoning is absolutely amazing!",
   },
   {
-    name: 'Keisha X.',
-    review: 'The only restaurant open Thanksgiving night. So happy I found them. The food was fresh and made to order. He put as much lemon pepper on my chicken as I wanted. Reasonably priced, stays open late. Would go back.',
-    imageUrl: 'https://static-content.owner.com/brands/funnel/reviews-section-images/tJIBWf8quS9QVWq25MOpEQinBBfTOdDr/khXoR6Z3I8hC3gZ3NXFgWWH7.png?v=8591941645&w=64&q=80&auto=format',
-    link: '#',
+    name: 'Marcus D.',
+    review: 'The fish is incredibly fresh and the portions are generous. I love their catfish dinner with seasoned fries. Staff is always friendly and the food comes out hot every time. Highly recommend!',
   },
   {
-    name: 'Thom C.',
-    review: 'Every time I order from there the food is great',
-    imageUrl: 'https://static-content.owner.com/brands/funnel/reviews-section-images/YECnB450nmOE7J1oBLKB9twcx13jaiSO/khXoR6Z3I8hC3gZ3NXFgWWH7.png?v=3697994388&w=64&q=80&auto=format',
-    link: '#',
+    name: 'Jennifer L.',
+    review: 'Amazing wings and great customer service! The cajun seasoning has the perfect kick. Been coming here for years and they never disappoint. The combo meals are a great value too.',
   },
 ];
 
@@ -34,19 +26,13 @@ const CustomerReviewsSection = () => {
               <div className="flex-grow">
                 <p className="text-muted-foreground">"{review.review}"</p>
               </div>
-              <div className="flex items-center mt-6">
-                <Image
-                  src={review.imageUrl}
-                  alt={review.name}
-                  width={64}
-                  height={64}
-                  className="rounded-full object-cover"
-                />
-                <div className="ml-4">
-                  <p className="font-semibold text-foreground">{review.name}</p>
-                  <a href={review.link} className="text-primary text-sm hover:underline">
-                    View more
-                  </a>
+              <div className="mt-6">
+                <p className="font-semibold text-foreground">{review.name}</p>
+                <div className="flex items-center mt-2">
+                  <div className="flex text-yellow-400">
+                    <span>★★★★★</span>
+                  </div>
+                  <span className="text-muted-foreground text-sm ml-2">5/5 stars</span>
                 </div>
               </div>
             </div>

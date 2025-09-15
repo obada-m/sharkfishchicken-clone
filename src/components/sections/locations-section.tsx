@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { Phone, MapPin, Clock, ExternalLink } from 'lucide-react';
+import { Phone, MapPin, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
