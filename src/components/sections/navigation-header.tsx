@@ -1,18 +1,13 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import Link from "next/link";
-import { Menu } from "lucide-react";
+import Image from 'next/image';
+import Link from 'next/link';
+import { Menu } from 'lucide-react';
 
-import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Button } from '@/components/ui/button';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 export default function NavigationHeader() {
-
   return (
     <header className="sticky top-0 z-50 flex h-16 sm:h-20 w-full items-center border-b-[1px] border-b-gray-200 bg-white">
       <div className="container flex w-full items-center justify-between px-4 sm:px-6">
@@ -24,7 +19,7 @@ export default function NavigationHeader() {
           <div className="flex items-center gap-2 sm:gap-3">
             <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-full overflow-hidden">
               <Image
-                src="/images/image_001.png"
+                src="/image_001.png"
                 alt="Sharks Fish & Chicken Logo"
                 width={48}
                 height={48}
@@ -32,12 +27,16 @@ export default function NavigationHeader() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-lg sm:text-xl text-gray-900">Sharks</span>
-              <span className="text-xs sm:text-sm text-gray-600 -mt-1">Fish & Chicken</span>
+              <span className="font-bold text-lg sm:text-xl text-gray-900">
+                Sharks
+              </span>
+              <span className="text-xs sm:text-sm text-gray-600 -mt-1">
+                Fish & Chicken
+              </span>
             </div>
           </div>
         </Link>
-        
+
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-6 md:flex">
           <Link

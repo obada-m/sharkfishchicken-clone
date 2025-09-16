@@ -10,7 +10,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center mb-4">
               <div className="flex items-center">
                 <img
-                  src="/images/image_001.png"
+                  src="/image_001.png"
                   alt="Sharks Fish & Chicken"
                   className="h-14 w-auto"
                 />
