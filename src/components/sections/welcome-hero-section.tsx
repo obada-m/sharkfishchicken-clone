@@ -7,10 +7,10 @@ import { Button } from '@/components/ui/button';
 
 export default function WelcomeHeroSection() {
   const images = [
-    '/image_021.jpeg',
-    '/image_022.jpeg',
-    '/image_023.jpeg',
-    '/image_024.jpeg',
+    '/images/img_0.jpeg',
+    '/images/img_1.jpeg',
+    '/images/img_2.jpeg',
+    '/images/img_3.jpeg',
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -42,10 +42,10 @@ export default function WelcomeHeroSection() {
 
       <div className="relative container mx-auto px-6 h-full flex items-center z-30">
         <div className="max-w-2xl">
-          <p className="text-white text-lg font-medium mb-4">
+          <p className="text-white text-lg font-medium mb-4 drop-shadow-lg">
             Best Fried Fish and Chicken Restaurant
           </p>
-          <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
+          <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 drop-shadow-lg">
             Experience a Crispy, Flavorful Sensation in Every Bite.
           </h1>
           <Button
