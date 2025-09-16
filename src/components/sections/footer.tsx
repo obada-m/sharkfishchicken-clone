@@ -21,7 +21,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-gray-300 text-sm leading-relaxed mb-4">
-              Best Fried Chicken Restaurant. Experience a crispy, flavorful
+              Best Fried Fish Chicken Restaurant. Experience a crispy, flavorful
               sensation in every bite with our authentic recipes and fresh
               ingredients.
             </p>
