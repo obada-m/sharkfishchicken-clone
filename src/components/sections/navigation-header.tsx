@@ -24,7 +24,7 @@ export default function NavigationHeader() {
           <div className="flex items-center gap-2 sm:gap-3">
             <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-full overflow-hidden">
               <Image
-                src="/image_001.png"
+                src="/images/image_001.png"
                 alt="Sharks Fish & Chicken Logo"
                 width={48}
                 height={48}

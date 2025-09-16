@@ -1,7 +1,7 @@
 import React from 'react';
 
 const FamilyDiningSection = () => {
-  const backgroundImageUrl = "https://static-content.owner.com/funnel/images/63e33811-a5a1-45eb-859a-348d547fc024?v=9050448973&w=3840&q=80&auto=format";
+  const backgroundImageUrl = "/images/img_1.jpeg";
 
   return (
     <section

@@ -36,27 +36,6 @@ const menuSections = [
     alt: "Chicken Menu",
     category: "Chicken"
   },
-  {
-    title: "Seafood Platters",
-    description: "Premium shrimp and seafood combinations",
-    src: "/menu__4.jpeg",
-    alt: "Seafood Platters Menu",
-    category: "Seafood"
-  },
-  {
-    title: "Combo Meals",
-    description: "Best value combinations and deals",
-    src: "/menu__5.jpeg",
-    alt: "Combo Meals Menu",
-    category: "Combos"
-  },
-  {
-    title: "Daily Specials",
-    description: "Fresh daily specials and featured items",
-    src: "/menu__6.jpeg",
-    alt: "Daily Specials Menu",
-    category: "Specials"
-  },
 ];
 
 export default function MenuGalleryPage() {
@@ -86,7 +65,7 @@ export default function MenuGalleryPage() {
       <div className="relative overflow-hidden bg-gradient-to-r from-teal-600 to-blue-600">
         <div className="absolute inset-0">
           <Image
-            src="/image_016.png"
+            src="/images/img_16.jpeg"
             alt="Sharks Fish & Chicken Menu"
             fill
             className="object-cover opacity-30"
@@ -213,35 +192,6 @@ export default function MenuGalleryPage() {
             </div>
           </div>
 
-          {/* Quick Navigation Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-12">
-            {menuSections.map((section, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`relative group rounded-xl overflow-hidden transition-all duration-300 ${
-                  currentSlide === index
-                    ? 'ring-2 ring-teal-600 ring-offset-4 scale-105'
-                    : 'hover:scale-102 hover:shadow-lg'
-                }`}
-              >
-                <div className="aspect-square relative">
-                  <Image
-                    src={section.src}
-                    alt={section.alt}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <p className="text-white text-xs font-medium text-center leading-tight">
-                    {section.title}
-                  </p>
-                </div>
-              </button>
-            ))}
-          </div>
         </div>
       </div>
 

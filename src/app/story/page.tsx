@@ -32,7 +32,7 @@ export default function StoryPage() {
                   <div className="flex items-center gap-3">
                     <div className="h-16 w-16 rounded-full overflow-hidden bg-white shadow-md flex items-center justify-center">
                       <img
-                        src="/image_001.png"
+                        src="/images/image_001.png"
                         alt="Sharks Fish & Chicken Logo"
                         className="h-12 w-12 object-contain"
                       />

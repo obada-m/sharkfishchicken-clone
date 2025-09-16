@@ -15,7 +15,7 @@ export default function LocationsPage() {
       <div className="relative overflow-hidden bg-gradient-to-r from-teal-600 to-blue-600">
         <div className="absolute inset-0">
           <Image
-            src="/image_016.png"
+            src="/images/img_17.jpeg"
             alt="Sharks Fish & Chicken Restaurant"
             fill
             className="object-cover opacity-30"

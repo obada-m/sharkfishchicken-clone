@@ -7,7 +7,7 @@ const RewardsProgramSection = () => {
         <div className="mx-auto max-w-4xl text-center">
           <div className="relative w-full aspect-[2/1] overflow-hidden rounded-lg">
             <Image
-              src="https://static-content.owner.com/funnel/images/0b600bd6-df97-4b4c-b393-41dd9c78893b?v=0395125257&w=3840&q=80&auto=format"
+              src="/images/img_2.jpeg"
               alt="Sharks Fish & Chicken Rewards program promotional image"
               fill
               className="object-cover"

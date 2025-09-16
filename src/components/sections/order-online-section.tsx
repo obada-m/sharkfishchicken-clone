@@ -9,7 +9,7 @@ const OrderOnlineSection = () => {
       {/* Background image with overlay */}
       <div className="absolute inset-0">
         <Image
-          src="/image_016.png"
+          src="/images/img_14.jpeg"
           alt="Order Online - Variety of delicious fried chicken and food"
           fill
           className="object-cover opacity-30"

@@ -11,7 +11,7 @@ const MenuFlavorSection = () => {
           <div className="relative">
             <div className="aspect-square relative rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/image_015.png"
+                src="/images/img_13.jpeg"
                 alt="A Menu Full of Flavor - Fish, Shrimp, and Fries"
                 fill
                 className="object-cover"

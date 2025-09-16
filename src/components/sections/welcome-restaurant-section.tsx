@@ -7,6 +7,7 @@ const WelcomeRestaurantSection = () => {
   const storeImages = [
     '/store_image1.jpeg',
     '/store_image2.jpeg',
+    '/store_image3.jpeg',
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
